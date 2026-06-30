@@ -1,0 +1,13 @@
+newmtl turbine_white
+Ka 0.92 0.94 0.96
+Kd 0.92 0.94 0.96
+Ks 0.10 0.10 0.10
+d 1
+illum 2
+
+newmtl turbine_dark
+Ka 0.30 0.34 0.36
+Kd 0.30 0.34 0.36
+Ks 0.05 0.05 0.05
+d 1
+illum 2

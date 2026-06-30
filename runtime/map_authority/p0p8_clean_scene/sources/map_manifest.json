@@ -1,0 +1,24 @@
+{
+  "coordinate_extent": {
+    "x": [
+      0.0,
+      300.0
+    ],
+    "y": [
+      -120.0,
+      120.0
+    ]
+  },
+  "outputs": [
+    "base_world.png",
+    "obstacle_map.png",
+    "route_map.png",
+    "route_result.png",
+    "sources/visual_mesh_footprints.csv",
+    "sources/route_waypoints.csv",
+    "sources/planner_obstacles.csv",
+    "sources/layer_index.csv"
+  ],
+  "scene_path": "${F250_PROJECT_ROOT}/map_authority/p0p8_clean_scene/sources/scene.yaml",
+  "source": "generated from p0p8_clean_scene sources plus transformed mesh/model geometry"
+}

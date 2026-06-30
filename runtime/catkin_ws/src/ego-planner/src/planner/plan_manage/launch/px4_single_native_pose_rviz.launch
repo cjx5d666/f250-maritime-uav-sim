@@ -1,0 +1,66 @@
+<launch>
+  <param name="/use_sim_time" value="true"/>
+
+  <arg name="map_size_x" value="60.0"/>
+  <arg name="map_size_y" value="60.0"/>
+  <arg name="map_size_z" value="8.0"/>
+  <arg name="odom_topic" value="/visual_truth/odom"/>
+  <arg name="camera_pose_topic" value="/grid_map/pose"/>
+  <arg name="depth_topic" value="/depth_camera/depth/image_raw"/>
+  <arg name="cx" value="320.0"/>
+  <arg name="cy" value="240.0"/>
+  <arg name="fx" value="337.0"/>
+  <arg name="fy" value="337.0"/>
+  <arg name="enable_rviz" default="true"/>
+  <arg name="rviz_config" default="$(find ego_planner)/launch/default_native_pose.rviz"/>
+  <arg name="enable_waypoint_generator" default="true"/>
+  <arg name="waypoint_type" default="manual-lonely-waypoint"/>
+  <arg name="max_vel" default="1.2"/>
+  <arg name="max_acc" default="1.5"/>
+  <arg name="planning_horizon" default="8"/>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world_map"
+        args="0 0 0 0 0 0 world map" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_depth_link"
+        args="0.1 0 0 0 0 0 base_link depth_camera_link" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_depth_optical"
+        args="0 0 0 -1.5707963 0 -1.5707963 depth_camera_link depth_camera_optical_frame" />
+
+  <include file="$(find ego_planner)/launch/advanced_param_px4_native_pose.xml">
+    <arg name="map_size_x_" value="$(arg map_size_x)"/>
+    <arg name="map_size_y_" value="$(arg map_size_y)"/>
+    <arg name="map_size_z_" value="$(arg map_size_z)"/>
+    <arg name="odometry_topic" value="$(arg odom_topic)"/>
+    <arg name="camera_pose_topic" value="$(arg camera_pose_topic)"/>
+    <arg name="depth_topic" value="$(arg depth_topic)"/>
+    <arg name="cloud_topic" value="/nouse/cloud"/>
+    <arg name="cx" value="$(arg cx)"/>
+    <arg name="cy" value="$(arg cy)"/>
+    <arg name="fx" value="$(arg fx)"/>
+    <arg name="fy" value="$(arg fy)"/>
+    <arg name="max_vel" value="$(arg max_vel)"/>
+    <arg name="max_acc" value="$(arg max_acc)"/>
+    <arg name="planning_horizon" value="$(arg planning_horizon)"/>
+  </include>
+
+  <node pkg="ego_planner" name="traj_server" type="traj_server" output="screen">
+    <remap from="/position_cmd" to="/planning/pos_cmd"/>
+    <remap from="/odom_world" to="$(arg odom_topic)"/>
+    <param name="traj_server/time_forward" value="2.0" type="double"/>
+  </node>
+
+  <group if="$(arg enable_waypoint_generator)">
+    <node pkg="waypoint_generator" name="waypoint_generator" type="waypoint_generator" output="screen">
+      <remap from="~odom" to="$(arg odom_topic)"/>
+      <remap from="~goal" to="/move_base_simple/goal"/>
+      <remap from="~traj_start_trigger" to="/traj_start_trigger"/>
+      <param name="waypoint_type" value="$(arg waypoint_type)"/>
+    </node>
+  </group>
+
+  <group if="$(arg enable_rviz)">
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_config)" />
+  </group>
+</launch>

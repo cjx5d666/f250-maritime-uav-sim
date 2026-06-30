@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="f250_wamv_visual">
+    <static>true</static>
+    <link name="vessel_link">
+      <visual name="wamv_visual">
+        <geometry>
+          <mesh>
+            <uri>model://f250_wamv_visual/mesh/WAM-V-Base.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="hull_collision">
+        <pose>0 0 0.35 0 0 0</pose>
+        <geometry><box><size>5.0 2.5 0.7</size></box></geometry>
+      </collision>
+      <collision name="deck_collision">
+        <pose>0 0 1.05 0 0 0</pose>
+        <geometry><box><size>1.8 1.1 0.18</size></box></geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,427 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 70
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.240620955824852
+    Tree Height: 371
+  - Class: rviz/Time
+    Name: Time
+    SyncMode: 0
+    SyncSource: C Planner Cloud To EGO
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 160
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: World Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 30
+      Reference Frame: world
+      Value: true
+    - Class: rviz/TF
+      Enabled: false
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+      Marker Alpha: 1
+      Marker Scale: 0.4000000059604645
+      Name: TF Frames (off by default)
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        {}
+      Update Interval: 0
+      Value: false
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /maritime/scene_markers
+      Name: A Visual Models (toggle)
+      Namespaces:
+        f250_maritime_dynamic_perception_proxy_primitives: false
+        f250_maritime_dynamic_visual_mesh: true
+        f250_maritime_perception_collision_mesh: false
+        f250_maritime_route_markers: false
+        f250_maritime_static_visual_mesh: true
+      Queue Size: 100
+      Value: false
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /maritime/scene_markers
+      Name: B Perception Collision Meshes (toggle)
+      Namespaces:
+        f250_maritime_dynamic_perception_proxy_primitives: true
+        f250_maritime_dynamic_visual_mesh: false
+        f250_maritime_perception_collision_mesh: true
+        f250_maritime_route_markers: false
+        f250_maritime_static_visual_mesh: false
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /maritime/scene_markers
+      Name: C Mission Route Markers
+      Namespaces:
+        f250_maritime_dynamic_perception_proxy_primitives: false
+        f250_maritime_dynamic_visual_mesh: false
+        f250_maritime_perception_collision_mesh: false
+        f250_maritime_route_markers: true
+        f250_maritime_static_visual_mesh: false
+      Queue Size: 100
+      Value: true
+    - Alpha: 0.949999988079071
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: __VALUE__
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 40; 210; 255
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: C Raw Depth Camera Cloud (manual)
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 4
+      Size (m): 0.07999999821186066
+      Style: Points
+      Topic: /maritime_depth_camera/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 0.949999988079071
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: __VALUE__
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 40; 210; 255
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: C Raw LiDAR Cloud
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 4
+      Size (m): 0.07999999821186066
+      Style: Points
+      Topic: /maritime/lidar_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /maritime/lidar_debug_markers
+      Name: C LiDAR Debug Rays
+      Namespaces:
+        lidar_actual_rays: true
+        lidar_sensor_origin: true
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 180; 60
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: C Planner Cloud To EGO
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.05999999865889549
+      Style: Points
+      Topic: /maritime/obstacles_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 0.5
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 230; 80
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: C EGO Occupied Cells
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 2
+      Size (m): 0.07999999821186066
+      Style: Points
+      Topic: /grid_map/occupancy
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 0.3499999940395355
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 70; 40
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: C EGO Inflated Avoidance Cells
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 2
+      Size (m): 0.10000000149011612
+      Style: Points
+      Topic: /grid_map/occupancy_inflate
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /maritime/inflated_obstacle_markers
+      Name: C Static Planning Envelopes + Sensor Context
+      Namespaces:
+        ego_local_planning_window: true
+        sensor_horizontal_coverage: true
+        perception_note: true
+        uav_forward_axis: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /maritime/metric_markers
+      Name: C Metric Markers
+      Namespaces:
+        maritime_metrics_global: false
+        maritime_metrics_labels: true
+        maritime_metrics_waypoints: true
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 0; 220; 255
+      Enabled: true
+      Head Diameter: 0.25
+      Head Length: 0.3499999940395355
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.07999999821186066
+      Name: C Mission Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 0; 220; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.20000000298023224
+      Topic: /maritime/mission_path
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 255; 80; 80
+      Enabled: true
+      Head Diameter: 0.25
+      Head Length: 0.3499999940395355
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.07000000029802322
+      Name: C Flight Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 80; 80
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.20000000298023224
+      Topic: /maritime/flight_path
+      Unreliable: false
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 50
+      Name: C UAV Odometry
+      Position Tolerance: 0.10000000149011612
+      Queue Size: 10
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Arrow
+      Topic: /mavros/local_position/odom
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Axes Length: 0.800000011920929
+      Axes Radius: 0.03999999910593033
+      Class: rviz/Pose
+      Color: 80; 255; 80
+      Enabled: true
+      Head Length: 0.3499999940395355
+      Head Radius: 0.11999999731779099
+      Name: C Active Goal
+      Queue Size: 10
+      Shaft Length: 0.699999988079071
+      Shaft Radius: 0.05000000074505806
+      Shape: Arrow
+      Topic: /maritime/active_goal
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Axes Length: 0.800000011920929
+      Axes Radius: 0.03999999910593033
+      Class: rviz/Pose
+      Color: 255; 120; 20
+      Enabled: true
+      Head Length: 0.3499999940395355
+      Head Radius: 0.11999999731779099
+      Name: C MAVROS Setpoint
+      Queue Size: 10
+      Shaft Length: 0.699999988079071
+      Shaft Radius: 0.05000000074505806
+      Shape: Arrow
+      Topic: /mavros/setpoint_position/local
+      Unreliable: false
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 12; 16; 20
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 179.13278198242188
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 145.1458740234375
+        Y: -0.8193598985671997
+        Z: 7.846830368041992
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.6197963356971741
+      Target Frame: world
+      Yaw: 1.6049998998641968
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 564
+  Hide Left Dock: false
+  Hide Right Dock: true
+  QMainWindow State: 000000ff00000000fd0000000100000000000003070000044afc0200000002fb000000100044006900730070006c006100790073000000003b000003ca000000c900fffffffb0000000800540069006d0065000000003b0000044a0000003900ffffff000005e8000001da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Time:
+    collapsed: false
+  Width: 1512
+  X: 72
+  Y: 28

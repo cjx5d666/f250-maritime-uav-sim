@@ -1,0 +1,94 @@
+{
+  "components": {
+    "final_completion": true,
+    "metric_3_6_keypoint_error": true,
+    "metric_3_7_route_safety": true,
+    "metric_3_9_endpoint_error": true,
+    "p8_completion": true,
+    "recorder_summary": true,
+    "static_obstacle_safety": true
+  },
+  "dynamic_boat_clearance": {
+    "cloud_entry_count": 0,
+    "geometry_entry_count": 0,
+    "min_clearance_m": null,
+    "role": "telemetry_only"
+  },
+  "metric_summary_json": "${RUNTIME_WORK_DIR}/route_run/metric_summary.json",
+  "metric_waypoints_csv": "${RUNTIME_WORK_DIR}/route_run/metric_waypoints.csv",
+  "metrics_json": "${RUNTIME_WORK_DIR}/route_run/metrics.json",
+  "ok": true,
+  "perception": {
+    "depth_cloud_topic": "/maritime_depth_camera/points",
+    "label": "LiDAR",
+    "lidar_cloud_topic": "/maritime/lidar_points",
+    "lidar_scan_topic": "/maritime/lidar_scan",
+    "occupancy_topic": "/grid_map/occupancy_inflate",
+    "planner_cloud_topic": "/maritime/obstacles_cloud",
+    "raw_cloud_topic": "/maritime/lidar_points",
+    "source": "lidar"
+  },
+  "perception_gate_json": "${RUNTIME_WORK_DIR}/route_run/perception_gate.json",
+  "perception_source": "lidar",
+  "policy": {
+    "baseline": "quick_complex_accepted",
+    "dynamic_boat_clearance_role": "telemetry_only",
+    "fixed_route": "classic_p0_p8",
+    "legacy_compatibility_components": [
+      "p8_completion"
+    ],
+    "policy_id": "current_route_acceptance_policy",
+    "route_acceptance_components": [
+      "final_completion",
+      "metric_3_7_route_safety",
+      "metric_3_6_keypoint_error",
+      "metric_3_9_endpoint_error"
+    ],
+    "route_acceptance_excludes_metric_3_10": true,
+    "route_acceptance_excludes_planning_success_rate": true,
+    "route_acceptance_excludes_yaw": true,
+    "route_basis": "selected_route_profile",
+    "route_profiles_enabled": false,
+    "vehicle": "f250"
+  },
+  "postprocess_ok": true,
+  "route": {
+    "final_completed": true,
+    "final_label": "P8",
+    "first_label": "P0",
+    "name": "Classic P0-P8",
+    "profile": "${F250_PROJECT_ROOT}/catkin_ws/src/f250_maritime_uav_sim/config/routes/classic_p0_p8.yaml",
+    "route_id": "classic_p0_p8",
+    "waypoint_count": 9
+  },
+  "run_dir": "${RUNTIME_WORK_DIR}/route_run",
+  "run_label": "route_run",
+  "sensor": "lidar",
+  "sensor_label": "LiDAR",
+  "static_obstacle_safety": {
+    "min_clearance_m": null,
+    "status": "SAFE"
+  },
+  "terminal": {
+    "endpoint_error_m": 0.6275257209985874,
+    "final_completed": true,
+    "final_index": 8,
+    "final_label": "P8",
+    "first_label": "P0",
+    "keypoint_error_max_m": 0.5665157198837838,
+    "keypoint_error_mean_m": 0.31161821187770744,
+    "line": "Route  P8/P8    | P8 done    | Static SAFE    | Key 0.312 m / 0.567 m | End 0.628 m",
+    "p8_completed": true,
+    "progress": "P8/P8",
+    "progress_index": 8,
+    "progress_label": "P8",
+    "route_id": "classic_p0_p8",
+    "route_name": "Classic P0-P8",
+    "route_profile": "${F250_PROJECT_ROOT}/catkin_ws/src/f250_maritime_uav_sim/config/routes/classic_p0_p8.yaml",
+    "static": "SAFE",
+    "static_min_clearance_m": null,
+    "static_safe": true,
+    "waypoint_count": 9
+  },
+  "vehicle": "f250"
+}

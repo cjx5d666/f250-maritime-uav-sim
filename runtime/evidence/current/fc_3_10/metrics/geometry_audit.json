@@ -1,0 +1,684 @@
+{
+  "audit_conclusion": "SAFE: FC 3.10 A/B and decagon geometry do not intersect planner obstacles",
+  "authority_dir": "${F250_PROJECT_ROOT}/map_authority/p0p8_clean_scene",
+  "created_at": "2026-06-28T09:22:51-07:00",
+  "direction": {
+    "policy": "u is the normalized reverse of ship center to three-mountain/island centroid direction",
+    "safe_u_xy": [
+      -0.9916184128767211,
+      0.1292010961402894
+    ],
+    "ship_to_mountain_centroid_xy": [
+      153.5,
+      -20.0
+    ]
+  },
+  "mountain_island_identification": {
+    "centers": [
+      {
+        "center_xy": [
+          135.0,
+          -105.0
+        ],
+        "name": "kauai_left_island_visual",
+        "style": "island"
+      },
+      {
+        "center_xy": [
+          270.0,
+          -12.0
+        ],
+        "name": "kauai_center_island_visual",
+        "style": "island"
+      },
+      {
+        "center_xy": [
+          135.0,
+          105.0
+        ],
+        "name": "kauai_right_island_visual",
+        "style": "island"
+      }
+    ],
+    "centroid_xy": [
+      180.0,
+      -4.0
+    ],
+    "policy": "three kauai/island/mountain visual mesh centers in visual_mesh_footprints.csv"
+  },
+  "p0_source": {
+    "label": "P0",
+    "name": "p0_h_midair_start",
+    "source_file": "${RUNTIME_WORK_DIR}/launch_run/route_waypoints.csv",
+    "source_kind": "current_run_route_first_waypoint",
+    "x": 55.0,
+    "y": 16.0,
+    "yaw_rad": 0.46992794268653587,
+    "z": 10.0,
+    "z_policy": "fixed 10 m for FC Metric 3.10"
+  },
+  "planner_obstacle_clearance": {
+    "closest_planner_obstacle": "o1_left_of_reference",
+    "closest_test_item": "decagon_vertex_00",
+    "conclusion": "SAFE",
+    "min_clearance_m": 26.32026864154964,
+    "per_obstacle": [
+      {
+        "closest_test_item": "decagon_vertex_00",
+        "min_clearance_m": 26.32026864154964,
+        "name": "o1_left_of_reference",
+        "shape": "cylinder",
+        "type": "buoy_cylinder"
+      },
+      {
+        "closest_test_item": "decagon_edge_09_00",
+        "min_clearance_m": 29.179676591095138,
+        "name": "o2_right_of_reference",
+        "shape": "cylinder",
+        "type": "buoy_cylinder"
+      },
+      {
+        "closest_test_item": "decagon_vertex_00",
+        "min_clearance_m": 47.508564323093125,
+        "name": "o3_on_reference",
+        "shape": "cylinder",
+        "type": "buoy_cylinder"
+      },
+      {
+        "closest_test_item": "decagon_vertex_00",
+        "min_clearance_m": 62.927015344663026,
+        "name": "o4_on_reference",
+        "shape": "cylinder",
+        "type": "buoy_cylinder"
+      },
+      {
+        "closest_test_item": "A_route_start",
+        "min_clearance_m": 139.9239308163612,
+        "name": "o5_near_island_bank",
+        "shape": "cylinder",
+        "type": "buoy_cylinder"
+      },
+      {
+        "closest_test_item": "decagon_edge_08_09",
+        "min_clearance_m": 124.90438243572923,
+        "name": "d1_port_pontoon",
+        "shape": "box",
+        "type": "dynamic_collision_proxy"
+      },
+      {
+        "closest_test_item": "decagon_edge_08_09",
+        "min_clearance_m": 125.6936862854287,
+        "name": "d1_starboard_pontoon",
+        "shape": "box",
+        "type": "dynamic_collision_proxy"
+      },
+      {
+        "closest_test_item": "A_route_start",
+        "min_clearance_m": 133.26017929600232,
+        "name": "d1_fore_crossbeam",
+        "shape": "box",
+        "type": "dynamic_collision_proxy"
+      },
+      {
+        "closest_test_item": "decagon_edge_08_09",
+        "min_clearance_m": 126.58314500333096,
+        "name": "d1_aft_crossbeam",
+        "shape": "box",
+        "type": "dynamic_collision_proxy"
+      },
+      {
+        "closest_test_item": "decagon_edge_08_09",
+        "min_clearance_m": 127.13060970563532,
+        "name": "d1_center_deck",
+        "shape": "box",
+        "type": "dynamic_collision_proxy"
+      },
+      {
+        "closest_test_item": "decagon_edge_08_09",
+        "min_clearance_m": 128.28516592311036,
+        "name": "d1_deckhouse",
+        "shape": "box",
+        "type": "dynamic_collision_proxy"
+      },
+      {
+        "closest_test_item": "decagon_edge_08_09",
+        "min_clearance_m": 130.5738293148494,
+        "name": "d1_sensor_arch",
+        "shape": "box",
+        "type": "dynamic_collision_proxy"
+      },
+      {
+        "closest_test_item": "decagon_edge_08_09",
+        "min_clearance_m": 131.60044268621036,
+        "name": "d1_high_mast_payload",
+        "shape": "box",
+        "type": "dynamic_collision_proxy"
+      }
+    ]
+  },
+  "planner_obstacle_count": 13,
+  "position_test": {
+    "R_m": 10.0,
+    "center_C_xy": [
+      45.08381587123279,
+      17.292010961402895
+    ],
+    "closure_point_xy": [
+      55.0,
+      16.0
+    ],
+    "current_formula_status": "ready_for_xyz_step_denominator",
+    "current_legacy_denominator_m": 10.0,
+    "decagon_points": [
+      {
+        "index": 0,
+        "x": 53.86560233966944,
+        "y": 22.07533892661529,
+        "z": 10.0
+      },
+      {
+        "index": 1,
+        "x": 49.37686073033998,
+        "y": 26.323609149857322,
+        "z": 10.0
+      },
+      {
+        "index": 2,
+        "x": 43.24832190005958,
+        "y": 27.12211583784174,
+        "z": 10.0
+      },
+      {
+        "index": 3,
+        "x": 37.82087938062182,
+        "y": 24.165856576002604,
+        "z": 10.0
+      },
+      {
+        "index": 4,
+        "x": 35.16763174246557,
+        "y": 18.58402192280579,
+        "z": 10.0
+      },
+      {
+        "index": 5,
+        "x": 36.30202940279614,
+        "y": 12.508682996190498,
+        "z": 10.0
+      },
+      {
+        "index": 6,
+        "x": 40.790771012125596,
+        "y": 8.260412772948467,
+        "z": 10.0
+      },
+      {
+        "index": 7,
+        "x": 46.919309842405994,
+        "y": 7.461906084964049,
+        "z": 10.0
+      },
+      {
+        "index": 8,
+        "x": 52.34675236184375,
+        "y": 10.418165346803184,
+        "z": 10.0
+      },
+      {
+        "index": 9,
+        "x": 55.0,
+        "y": 15.999999999999998,
+        "z": 10.0
+      }
+    ],
+    "denominator_alignment_note": "All current position windows have nonzero previous-target to current-target distances.",
+    "denominator_alignment_status": "ready",
+    "denominator_m": 10.0,
+    "outline_denominator_policy": "3D distance from previous position target to current position target",
+    "outline_error_policy": "3D distance between mean evaluated actual XYZ and current target XYZ",
+    "step_denominators": [
+      {
+        "current_label": "position_vertex_00",
+        "current_xyz": [
+          53.86560233966944,
+          22.07533892661529,
+          10.0
+        ],
+        "index": 1,
+        "phase": "position_vertex_00",
+        "previous_label": "post_velocity_hold_at_A",
+        "previous_xyz": [
+          55.0,
+          16.0,
+          10.0
+        ],
+        "step_distance_3d_m": 6.180339887498947,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_01",
+        "current_xyz": [
+          49.37686073033998,
+          26.323609149857322,
+          10.0
+        ],
+        "index": 2,
+        "phase": "position_vertex_01",
+        "previous_label": "position_vertex_00",
+        "previous_xyz": [
+          53.86560233966944,
+          22.07533892661529,
+          10.0
+        ],
+        "step_distance_3d_m": 6.180339887498949,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_02",
+        "current_xyz": [
+          43.24832190005958,
+          27.12211583784174,
+          10.0
+        ],
+        "index": 3,
+        "phase": "position_vertex_02",
+        "previous_label": "position_vertex_01",
+        "previous_xyz": [
+          49.37686073033998,
+          26.323609149857322,
+          10.0
+        ],
+        "step_distance_3d_m": 6.1803398874989455,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_03",
+        "current_xyz": [
+          37.82087938062182,
+          24.165856576002604,
+          10.0
+        ],
+        "index": 4,
+        "phase": "position_vertex_03",
+        "previous_label": "position_vertex_02",
+        "previous_xyz": [
+          43.24832190005958,
+          27.12211583784174,
+          10.0
+        ],
+        "step_distance_3d_m": 6.180339887498954,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_04",
+        "current_xyz": [
+          35.16763174246557,
+          18.58402192280579,
+          10.0
+        ],
+        "index": 5,
+        "phase": "position_vertex_04",
+        "previous_label": "position_vertex_03",
+        "previous_xyz": [
+          37.82087938062182,
+          24.165856576002604,
+          10.0
+        ],
+        "step_distance_3d_m": 6.180339887498947,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_05",
+        "current_xyz": [
+          36.30202940279614,
+          12.508682996190498,
+          10.0
+        ],
+        "index": 6,
+        "phase": "position_vertex_05",
+        "previous_label": "position_vertex_04",
+        "previous_xyz": [
+          35.16763174246557,
+          18.58402192280579,
+          10.0
+        ],
+        "step_distance_3d_m": 6.180339887498947,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_06",
+        "current_xyz": [
+          40.790771012125596,
+          8.260412772948467,
+          10.0
+        ],
+        "index": 7,
+        "phase": "position_vertex_06",
+        "previous_label": "position_vertex_05",
+        "previous_xyz": [
+          36.30202940279614,
+          12.508682996190498,
+          10.0
+        ],
+        "step_distance_3d_m": 6.180339887498949,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_07",
+        "current_xyz": [
+          46.919309842405994,
+          7.461906084964049,
+          10.0
+        ],
+        "index": 8,
+        "phase": "position_vertex_07",
+        "previous_label": "position_vertex_06",
+        "previous_xyz": [
+          40.790771012125596,
+          8.260412772948467,
+          10.0
+        ],
+        "step_distance_3d_m": 6.1803398874989455,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_08",
+        "current_xyz": [
+          52.34675236184375,
+          10.418165346803184,
+          10.0
+        ],
+        "index": 9,
+        "phase": "position_vertex_08",
+        "previous_label": "position_vertex_07",
+        "previous_xyz": [
+          46.919309842405994,
+          7.461906084964049,
+          10.0
+        ],
+        "step_distance_3d_m": 6.180339887498947,
+        "usable_as_denominator": true
+      },
+      {
+        "current_label": "position_vertex_09",
+        "current_xyz": [
+          55.0,
+          15.999999999999998,
+          10.0
+        ],
+        "index": 10,
+        "phase": "position_vertex_09",
+        "previous_label": "position_vertex_08",
+        "previous_xyz": [
+          52.34675236184375,
+          10.418165346803184,
+          10.0
+        ],
+        "step_distance_3d_m": 6.18033988749895,
+        "usable_as_denominator": true
+      }
+    ],
+    "windows": 10
+  },
+  "route_start_source": {
+    "current_route_waypoints_csv": "${RUNTIME_WORK_DIR}/launch_run/route_waypoints.csv",
+    "fallback_reason": "",
+    "fallback_source_file": "${F250_PROJECT_ROOT}/map_authority/p0p8_clean_scene/sources/route_waypoints.csv",
+    "label": "P0",
+    "name": "p0_h_midair_start",
+    "source_file": "${RUNTIME_WORK_DIR}/launch_run/route_waypoints.csv",
+    "source_kind": "current_run_route_first_waypoint",
+    "x": 55.0,
+    "y": 16.0,
+    "yaw_rad": 0.46992794268653587,
+    "z": 10.0,
+    "z_policy": "fixed 10 m for FC Metric 3.10"
+  },
+  "schema": "f250_fc_3_10_geometry_audit_v1",
+  "ship_identification": {
+    "center_xy": [
+      26.5,
+      16.0
+    ],
+    "name": "oasis_of_the_seas_static_carrier",
+    "policy": "name/style match in visual_mesh_footprints.csv",
+    "style": "oasis"
+  },
+  "source_files": {
+    "current_route_waypoints_csv": "${RUNTIME_WORK_DIR}/launch_run/route_waypoints.csv",
+    "map_authority_route_waypoints_csv": "${F250_PROJECT_ROOT}/map_authority/p0p8_clean_scene/sources/route_waypoints.csv",
+    "map_manifest_json": "${F250_PROJECT_ROOT}/map_authority/p0p8_clean_scene/sources/map_manifest.json",
+    "planner_obstacles_csv": "${F250_PROJECT_ROOT}/map_authority/p0p8_clean_scene/sources/planner_obstacles.csv",
+    "route_waypoints_csv": "${RUNTIME_WORK_DIR}/launch_run/route_waypoints.csv",
+    "scene_yaml": "${F250_PROJECT_ROOT}/map_authority/p0p8_clean_scene/sources/scene.yaml",
+    "visual_mesh_footprints_csv": "${F250_PROJECT_ROOT}/map_authority/p0p8_clean_scene/sources/visual_mesh_footprints.csv"
+  },
+  "source_policy": "Geometry is derived from authoritative CSV/JSON/YAML-backed map package; FC start uses the current run route first waypoint when available, then falls back to authoritative P0. Legacy or cached PNG files are not used as coordinate truth.",
+  "speed_only": false,
+  "velocity_test": {
+    "A_xy": [
+      55.0,
+      16.0
+    ],
+    "B_xy": [
+      -4.497104772603265,
+      23.752065768417364
+    ],
+    "L_m": 60.0,
+    "note": "Legacy summary of the first velocity test; use velocity_tests for all formal speeds.",
+    "round_trips": 5,
+    "speed_mps": 2.0,
+    "windows": 10,
+    "z": 10.0
+  },
+  "velocity_tests": [
+    {
+      "A_xy": [
+        55.0,
+        16.0
+      ],
+      "B_xy": [
+        -4.497104772603265,
+        23.752065768417364
+      ],
+      "L_m": 60.0,
+      "command_velocity_policy": "desired world XY velocity is +speed*u or -speed*u on AB legs",
+      "endpoint_margin_m": 8.0,
+      "key": "2mps",
+      "leg_duration_sec": 30.0,
+      "length_adjusted": false,
+      "minimum_length_for_settle_eval_m": 42.0,
+      "planner_obstacle_clearance": {
+        "closest_planner_obstacle": "o1_left_of_reference",
+        "closest_test_item": "velocity_2mps_A_B_segment",
+        "conclusion": "SAFE",
+        "min_clearance_m": 29.179247466445055,
+        "per_obstacle": [
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 29.179247466445055,
+            "name": "o1_left_of_reference",
+            "shape": "cylinder",
+            "type": "buoy_cylinder"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 29.179798156122352,
+            "name": "o2_right_of_reference",
+            "shape": "cylinder",
+            "type": "buoy_cylinder"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 48.899441198920584,
+            "name": "o3_on_reference",
+            "shape": "cylinder",
+            "type": "buoy_cylinder"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 64.39972380684236,
+            "name": "o4_on_reference",
+            "shape": "cylinder",
+            "type": "buoy_cylinder"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 139.9239308163612,
+            "name": "o5_near_island_bank",
+            "shape": "cylinder",
+            "type": "buoy_cylinder"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 124.90681894976645,
+            "name": "d1_port_pontoon",
+            "shape": "box",
+            "type": "dynamic_collision_proxy"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 125.7854370891189,
+            "name": "d1_starboard_pontoon",
+            "shape": "box",
+            "type": "dynamic_collision_proxy"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 133.26017929600232,
+            "name": "d1_fore_crossbeam",
+            "shape": "box",
+            "type": "dynamic_collision_proxy"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 126.58338601672409,
+            "name": "d1_aft_crossbeam",
+            "shape": "box",
+            "type": "dynamic_collision_proxy"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 127.13253737289772,
+            "name": "d1_center_deck",
+            "shape": "box",
+            "type": "dynamic_collision_proxy"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 128.29270429799837,
+            "name": "d1_deckhouse",
+            "shape": "box",
+            "type": "dynamic_collision_proxy"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 130.57424711421686,
+            "name": "d1_sensor_arch",
+            "shape": "box",
+            "type": "dynamic_collision_proxy"
+          },
+          {
+            "closest_test_item": "velocity_2mps_A_B_segment",
+            "min_clearance_m": 131.60544956808917,
+            "name": "d1_high_mast_payload",
+            "shape": "box",
+            "type": "dynamic_collision_proxy"
+          }
+        ]
+      },
+      "requested_L_m": 60.0,
+      "round_trips": 5,
+      "speed_mps": 2.0,
+      "windows": 10,
+      "z": 10.0
+    }
+  ],
+  "yaw_test": {
+    "base_yaw_rad": 0.46992794268653587,
+    "denominator_policy": "first 8 windows use 90 deg; last 2 windows use 180 deg",
+    "targets": [
+      {
+        "denominator_deg": 90,
+        "denominator_rad": 1.5707963267948966,
+        "index": 1,
+        "offset_deg": 90,
+        "target_yaw_rad": 2.0407242694814323,
+        "target_yaw_wrapped_rad": 2.040724269481432
+      },
+      {
+        "denominator_deg": 90,
+        "denominator_rad": 1.5707963267948966,
+        "index": 2,
+        "offset_deg": 180,
+        "target_yaw_rad": 3.611520596276329,
+        "target_yaw_wrapped_rad": -2.671664710903258
+      },
+      {
+        "denominator_deg": 90,
+        "denominator_rad": 1.5707963267948966,
+        "index": 3,
+        "offset_deg": 270,
+        "target_yaw_rad": 5.182316923071226,
+        "target_yaw_wrapped_rad": -1.1008683841083595
+      },
+      {
+        "denominator_deg": 90,
+        "denominator_rad": 1.5707963267948966,
+        "index": 4,
+        "offset_deg": 360,
+        "target_yaw_rad": 6.753113249866122,
+        "target_yaw_wrapped_rad": 0.46992794268653526
+      },
+      {
+        "denominator_deg": 90,
+        "denominator_rad": 1.5707963267948966,
+        "index": 5,
+        "offset_deg": -90,
+        "target_yaw_rad": -1.1008683841083606,
+        "target_yaw_wrapped_rad": -1.1008683841083604
+      },
+      {
+        "denominator_deg": 90,
+        "denominator_rad": 1.5707963267948966,
+        "index": 6,
+        "offset_deg": -180,
+        "target_yaw_rad": -2.6716647109032574,
+        "target_yaw_wrapped_rad": -2.6716647109032574
+      },
+      {
+        "denominator_deg": 90,
+        "denominator_rad": 1.5707963267948966,
+        "index": 7,
+        "offset_deg": -270,
+        "target_yaw_rad": -4.2424610376981535,
+        "target_yaw_wrapped_rad": 2.0407242694814327
+      },
+      {
+        "denominator_deg": 90,
+        "denominator_rad": 1.5707963267948966,
+        "index": 8,
+        "offset_deg": -360,
+        "target_yaw_rad": -5.81325736449305,
+        "target_yaw_wrapped_rad": 0.46992794268653615
+      },
+      {
+        "denominator_deg": 180,
+        "denominator_rad": 3.141592653589793,
+        "index": 9,
+        "offset_deg": 180,
+        "target_yaw_rad": 3.611520596276329,
+        "target_yaw_wrapped_rad": -2.671664710903258
+      },
+      {
+        "denominator_deg": 180,
+        "denominator_rad": 3.141592653589793,
+        "index": 10,
+        "offset_deg": 0,
+        "target_yaw_rad": 0.46992794268653587,
+        "target_yaw_wrapped_rad": 0.4699279426865357
+      }
+    ],
+    "windows": 10
+  }
+}

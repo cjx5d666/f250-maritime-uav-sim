@@ -1,0 +1,43 @@
+# Procedural opaque materials for clean_single_mountain_probe.obj
+# No alpha, transparency, or texture maps are used.
+newmtl beach_sand
+Ka 0.62 0.50 0.30
+Kd 0.78 0.65 0.38
+Ks 0.05 0.05 0.04
+Ns 12
+illum 2
+
+newmtl lower_grass
+Ka 0.17 0.36 0.14
+Kd 0.25 0.52 0.20
+Ks 0.04 0.05 0.03
+Ns 10
+illum 2
+
+newmtl green_slope
+Ka 0.10 0.28 0.12
+Kd 0.16 0.43 0.18
+Ks 0.04 0.04 0.03
+Ns 10
+illum 2
+
+newmtl dark_ridge
+Ka 0.06 0.18 0.08
+Kd 0.10 0.28 0.12
+Ks 0.03 0.04 0.03
+Ns 8
+illum 2
+
+newmtl summit_rock
+Ka 0.28 0.25 0.21
+Kd 0.44 0.39 0.32
+Ks 0.06 0.06 0.05
+Ns 14
+illum 2
+
+newmtl underside_earth
+Ka 0.22 0.18 0.13
+Kd 0.35 0.27 0.18
+Ks 0.03 0.03 0.02
+Ns 8
+illum 2

@@ -1,0 +1,14 @@
+type,name,include_in_cloud,visual,center_x,center_y,center_z,radius_m,height_m,size_x,size_y,size_z,yaw_rad,shape,motion_type,motion_axis_x,motion_axis_y,motion_axis_z,motion_amplitude_m,motion_period_sec,motion_phase_rad
+buoy_cylinder,o1_left_of_reference,True,True,78.564,38.061,5.5,3.1,11.0,,,,0.0,cylinder,,,,,,,
+buoy_cylinder,o2_right_of_reference,True,True,86.715,22.012,5.5,3.1,11.0,,,,0.0,cylinder,,,,,,,
+buoy_cylinder,o3_on_reference,True,True,101.363,39.546,5.5,3.1,11.0,,,,0.0,cylinder,,,,,,,
+buoy_cylinder,o4_on_reference,True,True,115.183,46.565,5.5,3.1,11.0,,,,0.0,cylinder,,,,,,,
+buoy_cylinder,o5_near_island_bank,True,True,197.5,5.0,5.5,3.0,11.0,,,,0.0,cylinder,,,,,,,
+dynamic_collision_proxy,d1_port_pontoon,True,True,181.50717811647178,-38.01372953549318,4.15,,,11.2,1.0,1.25,-0.25,box,sinusoid,1.0,0.25,0.0,9.0,46.0,0.4
+dynamic_collision_proxy,d1_starboard_pontoon,True,True,180.49282188352822,-41.98627046450682,4.15,,,11.2,1.0,1.25,-0.25,box,sinusoid,1.0,0.25,0.0,9.0,46.0,0.4
+dynamic_collision_proxy,d1_fore_crossbeam,True,True,184.29430223381618,-40.84117346146538,4.9,,,0.9,5.5,0.5,-0.25,box,sinusoid,1.0,0.25,0.0,9.0,46.0,0.4
+dynamic_collision_proxy,d1_aft_crossbeam,True,True,177.70569776618382,-39.15882653853462,4.9,,,0.9,5.5,0.5,-0.25,box,sinusoid,1.0,0.25,0.0,9.0,46.0,0.4
+dynamic_collision_proxy,d1_center_deck,True,True,181.0,-40.0,5.25,,,6.8,4.4,0.5,-0.25,box,sinusoid,1.0,0.25,0.0,9.0,46.0,0.4
+dynamic_collision_proxy,d1_deckhouse,True,True,180.03108757828934,-39.75259604074548,6.5,,,2.8,2.6,1.8,-0.25,box,sinusoid,1.0,0.25,0.0,9.0,46.0,0.4
+dynamic_collision_proxy,d1_sensor_arch,True,True,181.2906737265132,-40.07422118777636,7.85,,,0.5,3.8,2.6,-0.25,box,sinusoid,1.0,0.25,0.0,9.0,46.0,0.4
+dynamic_collision_proxy,d1_high_mast_payload,True,True,182.74404235907917,-40.44532712665814,9.7,,,1.8,1.8,8.6,-0.25,box,sinusoid,1.0,0.25,0.0,9.0,46.0,0.4

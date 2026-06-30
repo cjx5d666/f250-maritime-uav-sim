@@ -1,0 +1,32 @@
+{
+  "schema": "f250_current_evidence_index_v1",
+  "tasks": {
+    "fc_3_10": {
+      "available": true,
+      "inputs": "fc_3_10/inputs",
+      "manifest": "fc_3_10/manifest.json",
+      "measurements": "fc_3_10/measurements",
+      "metrics": "fc_3_10/metrics",
+      "outcome": "PASS",
+      "sensor": "lidar",
+      "source_task": "flight_control_run",
+      "state": "complete",
+      "status": "fc_3_10/status.env",
+      "updated_at": "2026-06-28T16:34:32Z"
+    },
+    "route_p0_p8": {
+      "available": true,
+      "inputs": "route_p0_p8/inputs",
+      "manifest": "route_p0_p8/manifest.json",
+      "measurements": "route_p0_p8/measurements",
+      "metrics": "route_p0_p8/metrics",
+      "outcome": "final_hold_reached",
+      "sensor": "lidar",
+      "source_task": "route_run",
+      "state": "complete",
+      "status": "route_p0_p8/status.env",
+      "updated_at": "2026-06-29T17:47:42Z"
+    }
+  },
+  "updated_at": "2026-06-29T17:48:07Z"
+}

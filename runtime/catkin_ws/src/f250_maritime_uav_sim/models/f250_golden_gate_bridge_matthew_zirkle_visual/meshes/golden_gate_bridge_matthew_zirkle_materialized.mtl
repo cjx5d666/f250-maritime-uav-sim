@@ -1,0 +1,8 @@
+# https://github.com/mikedh/trimesh
+
+newmtl material_0
+Ka 0.45000000 0.19000000 0.08000000
+Kd 0.86000000 0.36000000 0.13000000
+Ks 0.08000000 0.06000000 0.05000000
+Ns 1.00000000
+map_Kd golden_gate_bridge_matthew_zirkle_material_0.png

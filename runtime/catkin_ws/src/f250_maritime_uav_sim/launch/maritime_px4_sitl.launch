@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="px4_root" default="$(optenv F250_PX4_ROOT PX4_ROOT_NOT_SET)"/>
+  <arg name="scene_level" default="$(optenv SCENE_LEVEL level_m_gps_assets_quick_complex)"/>
+  <arg name="world" default="$(find f250_maritime_uav_sim)/worlds/maritime_$(arg scene_level).world"/>
+  <arg name="vehicle" default="$(optenv MARITIME_VEHICLE f250)"/>
+  <arg name="gui" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="verbose" default="false"/>
+  <arg name="paused" default="false"/>
+  <arg name="interactive" default="false"/>
+  <arg name="enable_truth_vision" default="true"/>
+  <arg name="fcu_url" default="udp://:14540@localhost:14557"/>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="1.10"/>
+  <arg name="R" default="0.0"/>
+  <arg name="P" default="0.0"/>
+  <arg name="Y" default="0.0"/>
+
+  <param name="/use_sim_time" value="true"/>
+
+  <include file="$(arg px4_root)/launch/mavros_posix_sitl.launch">
+    <arg name="world" value="$(arg world)"/>
+    <arg name="vehicle" value="$(arg vehicle)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="verbose" value="$(arg verbose)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="interactive" value="$(arg interactive)"/>
+    <arg name="fcu_url" value="$(arg fcu_url)"/>
+    <arg name="x" value="$(arg x)"/>
+    <arg name="y" value="$(arg y)"/>
+    <arg name="z" value="$(arg z)"/>
+    <arg name="R" value="$(arg R)"/>
+    <arg name="P" value="$(arg P)"/>
+    <arg name="Y" value="$(arg Y)"/>
+  </include>
+
+  <group if="$(arg enable_truth_vision)">
+    <node pkg="f250_maritime_uav_sim" type="gazebo_truth_to_mavros_vision.py"
+          name="gazebo_truth_to_mavros_vision" output="log">
+      <param name="link_states_topic" value="/gazebo/link_states"/>
+      <param name="vision_pose_topic" value="/mavros/vision_pose/pose"/>
+      <param name="odom_topic" value="/visual_truth/odom"/>
+      <param name="frame_id" value="world"/>
+      <param name="child_frame_id" value="base_link"/>
+      <param name="publish_odom" value="true" type="bool"/>
+    </node>
+  </group>
+</launch>

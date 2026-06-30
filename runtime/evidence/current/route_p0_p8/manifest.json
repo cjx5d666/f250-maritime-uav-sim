@@ -1,0 +1,20 @@
+{
+  "files": {
+    "acceptance_summary": "metrics/acceptance_summary.json",
+    "actual_trajectory": "measurements/actual_trajectory.csv",
+    "effective_scene": "inputs/effective_scene.yaml",
+    "metric_summary": "metrics/metric_summary.json",
+    "metrics_full": "metrics/metrics_full.json",
+    "params": "inputs/params.json",
+    "route_waypoints": "inputs/route_waypoints.csv",
+    "status": "status.env",
+    "waypoint_errors": "metrics/waypoint_errors.csv"
+  },
+  "outcome": "final_hold_reached",
+  "schema": "f250_current_evidence_manifest_v1",
+  "sensor": "lidar",
+  "source_task": "route_run",
+  "state": "complete",
+  "task": "route_p0_p8",
+  "updated_at": "2026-06-29T17:47:42Z"
+}

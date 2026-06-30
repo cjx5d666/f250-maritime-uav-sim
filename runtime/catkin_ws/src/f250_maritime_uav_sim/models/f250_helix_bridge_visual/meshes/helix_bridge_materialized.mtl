@@ -1,0 +1,20 @@
+newmtl helix_steel
+Ka 0.900 0.960 0.980
+Kd 0.900 0.960 0.980
+Ks 0.12 0.12 0.12
+d 1
+illum 2
+
+newmtl helix_shadow
+Ka 0.760 0.840 0.880
+Kd 0.760 0.840 0.880
+Ks 0.08 0.08 0.08
+d 1
+illum 2
+
+newmtl helix_deck
+Ka 0.820 0.860 0.840
+Kd 0.820 0.860 0.840
+Ks 0.08 0.08 0.08
+d 1
+illum 2

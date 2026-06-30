@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="scene_level" default="$(optenv SCENE_LEVEL level_m_gps_assets_quick_complex)"/>
+  <arg name="scene_config" default="$(find f250_maritime_uav_sim)/config/scenes/$(arg scene_level).yaml"/>
+  <arg name="perception_source" default="$(optenv PERCEPTION_SOURCE lidar)"/>
+  <arg name="dynamic_mode" default="$(optenv DYNAMIC_MODE auto)"/>
+  <arg name="frame_id" default="world"/>
+  <arg name="cloud_topic" default="$(optenv PLANNER_CLOUD_TOPIC /maritime/obstacles_cloud)"/>
+  <arg name="lidar_cloud_topic" default="$(optenv LIDAR_CLOUD_TOPIC /maritime/lidar_points)"/>
+  <arg name="lidar_scan_topic" default="$(optenv LIDAR_SCAN_TOPIC /maritime/lidar_scan)"/>
+  <arg name="lidar_cloud_min_z" default="$(optenv LIDAR_CLOUD_MIN_Z -0.5)"/>
+  <arg name="depth_cloud_topic" default="$(optenv DEPTH_CLOUD_TOPIC /maritime_depth_camera/points)"/>
+  <arg name="depth_camera_pitch_deg" default="$(optenv DEPTH_CAMERA_PITCH_DEG 0.0)"/>
+  <arg name="depth_cloud_min_z" default="$(optenv DEPTH_CLOUD_MIN_Z -0.5)"/>
+  <arg name="depth_cloud_max_range" default="$(optenv DEPTH_CLOUD_MAX_RANGE 40.0)"/>
+  <arg name="depth_drop_far_clip" default="$(optenv DEPTH_DROP_FAR_CLIP true)"/>
+  <arg name="depth_far_clip_margin" default="$(optenv DEPTH_FAR_CLIP_MARGIN 0.2)"/>
+  <arg name="marker_topic" default="/maritime/scene_markers"/>
+  <arg name="inflated_marker_topic" default="/maritime/inflated_obstacle_markers"/>
+  <arg name="enable_inflated_markers" default="$(optenv MARITIME_ENABLE_INFLATED_MARKERS true)"/>
+  <arg name="show_reference_primitives" default="$(optenv MARITIME_SHOW_REFERENCE_PRIMITIVES false)"/>
+  <arg name="show_raw_planner_shapes" default="$(optenv MARITIME_SHOW_RAW_PLANNER_SHAPES false)"/>
+  <arg name="show_collision_meshes" default="$(optenv MARITIME_SHOW_COLLISION_MESHES true)"/>
+  <arg name="inflation_m" default="$(optenv EGO_OBSTACLES_INFLATION 0.5)"/>
+  <arg name="path_topic" default="/maritime/mission_path"/>
+  <arg name="flight_path_topic" default="/maritime/flight_path"/>
+  <arg name="enable_metric_monitor" default="$(optenv MARITIME_ENABLE_METRIC_MONITOR false)"/>
+  <arg name="metric_marker_topic" default="/maritime/metric_markers"/>
+  <arg name="metric_status_topic" default="/maritime/metric_status"/>
+  <arg name="show_metric_global_label" default="$(optenv MARITIME_SHOW_METRIC_GLOBAL_LABEL false)"/>
+  <arg name="metric_output_dir" default="$(optenv MARITIME_METRIC_OUTPUT_DIR)"/>
+  <arg name="metric_run_label" default="$(optenv MARITIME_METRIC_RUN_LABEL)"/>
+  <arg name="goal_topic" default="/move_base_simple/goal"/>
+  <arg name="odom_topic" default="/mavros/local_position/odom"/>
+  <arg name="start_paused" default="$(optenv MARITIME_START_PAUSED false)"/>
+  <arg name="start_topic" default="$(optenv MARITIME_START_TOPIC /maritime/demo/start_waypoints)"/>
+  <arg name="use_sim_time" default="false"/>
+
+  <param name="/use_sim_time" value="$(arg use_sim_time)"/>
+
+
+  <group if="$(eval arg('perception_source') == 'lidar')">
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_maritime_mid360_lidar" output="log"
+          args="-sdf -file $(find f250_maritime_uav_sim)/models/maritime_mid360_lidar/model.sdf -model maritime_mid360_lidar -x 0 -y 0 -z 1"/>
+    <node pkg="f250_maritime_uav_sim" type="maritime_lidar_follow_odom.py" name="maritime_lidar_follow_odom" output="log">
+      <param name="model_name" value="maritime_mid360_lidar"/>
+      <param name="odom_topic" value="$(arg odom_topic)"/>
+      <param name="sensor_xyz" value="[0.12, 0.0, 0.04]" type="yaml"/>
+      <param name="update_rate_hz" value="20.0"/>
+    </node>
+    <node pkg="f250_maritime_uav_sim" type="maritime_laser_scan_adapter.py" name="maritime_laser_scan_adapter" output="log">
+      <param name="source_type" value="lidar"/>
+      <param name="scan_topic" value="$(arg lidar_scan_topic)"/>
+      <param name="raw_cloud_topic" value="$(arg lidar_cloud_topic)"/>
+      <param name="output_topic" value="$(arg cloud_topic)"/>
+      <param name="debug_marker_topic" value="/maritime/lidar_debug_markers"/>
+      <param name="enable_debug_markers" value="$(optenv MARITIME_ENABLE_LIDAR_DEBUG_MARKERS true)" type="bool"/>
+      <param name="debug_ray_stride" value="$(optenv MARITIME_LIDAR_DEBUG_RAY_STRIDE 2)" type="int"/>
+      <param name="debug_ray_max" value="$(optenv MARITIME_LIDAR_DEBUG_RAY_MAX 90)" type="int"/>
+      <param name="frame_id" value="$(arg frame_id)"/>
+      <param name="odom_topic" value="$(arg odom_topic)"/>
+      <param name="sensor_xyz" value="[0.12, 0.0, 0.04]" type="yaml"/>
+      <param name="sensor_pitch_deg" value="0.0"/>
+      <param name="min_z" value="$(arg lidar_cloud_min_z)"/>
+      <param name="max_z" value="14.0"/>
+      <param name="voxel_size" value="0.2"/>
+      <param name="max_points" value="12000"/>
+    </node>
+  </group>
+
+  <group if="$(eval arg('perception_source') == 'depth')">
+    <node pkg="f250_maritime_uav_sim" type="maritime_sensor_cloud_adapter.py" name="maritime_sensor_cloud_adapter" output="log">
+      <param name="source_type" value="depth"/>
+      <param name="input_topic" value="$(arg depth_cloud_topic)"/>
+      <param name="output_topic" value="$(arg cloud_topic)"/>
+      <param name="frame_id" value="$(arg frame_id)"/>
+      <param name="odom_topic" value="$(arg odom_topic)"/>
+      <param name="camera_xyz" value="[0.12, 0.0, 0.04]" type="yaml"/>
+      <param name="camera_pitch_deg" value="$(arg depth_camera_pitch_deg)"/>
+      <param name="min_z" value="$(arg depth_cloud_min_z)"/>
+      <param name="max_z" value="14.0"/>
+      <param name="max_range" value="$(arg depth_cloud_max_range)"/>
+      <param name="drop_far_clip" value="$(arg depth_drop_far_clip)" type="bool"/>
+      <param name="far_clip_margin" value="$(arg depth_far_clip_margin)"/>
+      <param name="voxel_size" value="0.25"/>
+      <param name="input_stride" value="2"/>
+      <param name="max_points" value="12000"/>
+    </node>
+  </group>
+
+  <node pkg="f250_maritime_uav_sim" type="maritime_scene_markers.py" name="maritime_scene_markers" output="log">
+    <param name="scene_config" value="$(arg scene_config)"/>
+    <param name="dynamic_mode" value="$(arg dynamic_mode)"/>
+    <param name="frame_id" value="$(arg frame_id)"/>
+    <param name="marker_topic" value="$(arg marker_topic)"/>
+    <param name="path_topic" value="$(arg path_topic)"/>
+    <param name="show_reference_primitives" value="$(arg show_reference_primitives)" type="bool"/>
+    <param name="show_raw_planner_shapes" value="$(arg show_raw_planner_shapes)" type="bool"/>
+    <param name="show_collision_meshes" value="$(arg show_collision_meshes)" type="bool"/>
+  </node>
+
+  <node if="$(arg enable_inflated_markers)" pkg="f250_maritime_uav_sim" type="maritime_inflated_obstacle_markers.py"
+        name="maritime_inflated_obstacle_markers" output="log">
+    <param name="scene_config" value="$(arg scene_config)"/>
+    <param name="dynamic_mode" value="$(arg dynamic_mode)"/>
+    <param name="frame_id" value="$(arg frame_id)"/>
+    <param name="marker_topic" value="$(arg inflated_marker_topic)"/>
+    <param name="perception_source" value="$(arg perception_source)"/>
+    <param name="inflation_m" value="$(arg inflation_m)" type="double"/>
+    <param name="odom_topic" value="$(arg odom_topic)"/>
+    <param name="lidar_range_m" value="$(optenv MARITIME_LIDAR_VIS_RANGE_M 18.0)" type="double"/>
+    <param name="local_range_xy" value="$(optenv EGO_LOCAL_UPDATE_RANGE_X 18.0)" type="double"/>
+    <param name="local_range_z" value="$(optenv EGO_LOCAL_UPDATE_RANGE_Z 9.0)" type="double"/>
+  </node>
+
+  <node pkg="f250_maritime_uav_sim" type="maritime_dynamic_obstacles.py" name="maritime_dynamic_obstacles" output="log">
+    <param name="scene_config" value="$(arg scene_config)"/>
+    <param name="dynamic_mode" value="$(arg dynamic_mode)"/>
+    <param name="reference_frame" value="$(arg frame_id)"/>
+  </node>
+
+  <node pkg="f250_maritime_uav_sim" type="maritime_flight_path.py" name="maritime_flight_path" output="log">
+    <param name="odom_topic" value="$(arg odom_topic)"/>
+    <param name="path_topic" value="$(arg flight_path_topic)"/>
+    <param name="frame_id" value="$(arg frame_id)"/>
+  </node>
+
+  <node if="$(arg enable_metric_monitor)" pkg="f250_maritime_uav_sim" type="maritime_metric_monitor.py"
+        name="maritime_metric_monitor" output="screen">
+    <param name="scene_config" value="$(arg scene_config)"/>
+    <param name="dynamic_mode" value="$(arg dynamic_mode)"/>
+    <param name="frame_id" value="$(arg frame_id)"/>
+    <param name="odom_topic" value="$(arg odom_topic)"/>
+    <param name="active_goal_topic" value="/maritime/active_goal"/>
+    <param name="marker_topic" value="$(arg metric_marker_topic)"/>
+    <param name="status_topic" value="$(arg metric_status_topic)"/>
+    <param name="show_global_label" value="$(arg show_metric_global_label)" type="bool"/>
+    <param name="output_dir" value="$(arg metric_output_dir)"/>
+    <param name="run_label" value="$(arg metric_run_label)"/>
+  </node>
+
+  <node pkg="f250_maritime_uav_sim" type="maritime_goal_sequence.py" name="maritime_goal_sequence" output="log">
+    <param name="scene_config" value="$(arg scene_config)"/>
+    <param name="frame_id" value="$(arg frame_id)"/>
+    <param name="goal_topic" value="$(arg goal_topic)"/>
+    <param name="heartbeat_topic" value="/mission/heartbeat"/>
+    <param name="odom_topic" value="$(arg odom_topic)"/>
+    <param name="start_paused" value="$(arg start_paused)" type="bool"/>
+    <param name="start_topic" value="$(arg start_topic)"/>
+  </node>
+</launch>

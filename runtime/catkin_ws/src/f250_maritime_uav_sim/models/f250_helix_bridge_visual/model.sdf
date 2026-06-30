@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="f250_helix_bridge_visual">
+    <static>true</static>
+    <link name="visual_link">
+      <visual name="helix_bridge_visual">
+        <geometry>
+          <mesh>
+            <uri>model://f250_helix_bridge_visual/meshes/helix_bridge_materialized.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.58 0.62 0.65 1.0</ambient>
+          <diffuse>0.58 0.62 0.65 1.0</diffuse>
+          <specular>0.12 0.12 0.12 1.0</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

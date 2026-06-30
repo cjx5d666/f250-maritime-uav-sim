@@ -1,0 +1,33 @@
+# Catkin generated outputs
+runtime/catkin_ws/build/
+runtime/catkin_ws/devel/
+runtime/catkin_ws/install/
+runtime/catkin_ws/.catkin_tools/
+runtime/catkin_ws/.catkin_workspace
+
+# Runtime local state and temporary runs
+runtime/runtime_state/
+runtime/runs/
+runtime/cache/
+
+# External/generated review package
+delivery_package/
+
+# Python/editor/test caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.vscode/
+runtime/maintenance/venvs/
+.release_pycache.*/
+.check_pycache.*/
+
+# Logs and transient captures
+*.log
+*.xwd
+*.bag
+.staging_logs/
+
+# Local environment snippets
+.env
+.env.local

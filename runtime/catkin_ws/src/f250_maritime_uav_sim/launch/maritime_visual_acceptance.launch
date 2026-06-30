@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="scene_level" default="$(optenv SCENE_LEVEL level_m_gps_assets_quick_complex)"/>
+  <arg name="scene_config" default="$(find f250_maritime_uav_sim)/config/scenes/$(arg scene_level).yaml"/>
+  <arg name="perception_source" default="$(optenv PERCEPTION_SOURCE lidar)"/>
+  <arg name="dynamic_mode" default="$(optenv DYNAMIC_MODE auto)"/>
+  <arg name="world" default="$(find f250_maritime_uav_sim)/worlds/maritime_$(arg scene_level).world"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="px4_gui" default="true"/>
+  <arg name="auto_offboard_arm" default="true"/>
+  <arg name="require_planner_command_for_offboard" default="true"/>
+  <arg name="start_paused" default="$(optenv MARITIME_START_PAUSED false)"/>
+  <arg name="start_topic" default="$(optenv MARITIME_START_TOPIC /maritime/demo/start_waypoints)"/>
+  <arg name="enable_metric_monitor" default="$(optenv MARITIME_ENABLE_METRIC_MONITOR false)"/>
+  <arg name="metric_output_dir" default="$(optenv MARITIME_METRIC_OUTPUT_DIR)"/>
+  <arg name="metric_run_label" default="$(optenv MARITIME_METRIC_RUN_LABEL)"/>
+  <arg name="landing_enabled" default="$(optenv LANDING_MODE false)"/>
+  <arg name="enable_rviz" default="true"/>
+  <arg name="enable_truth_vision" default="true"/>
+  <arg name="vehicle" default="$(optenv MARITIME_VEHICLE f250)"/>
+  <arg name="rviz_config" default="$(find f250_maritime_uav_sim)/rviz/maritime_visual_acceptance.rviz"/>
+  <arg name="spawn_x" default="$(optenv PX4_SPAWN_X 0.0)"/>
+  <arg name="spawn_y" default="$(optenv PX4_SPAWN_Y 0.0)"/>
+  <arg name="spawn_z" default="$(optenv PX4_SPAWN_Z 1.10)"/>
+  <arg name="spawn_yaw" default="$(optenv PX4_SPAWN_YAW 0.0)"/>
+  <arg name="map_size_x" default="$(optenv MAP_SIZE_X 36.0)"/>
+  <arg name="map_size_y" default="$(optenv MAP_SIZE_Y 24.0)"/>
+  <arg name="map_size_z" default="$(optenv MAP_SIZE_Z 12.0)"/>
+
+  <include file="$(find f250_maritime_uav_sim)/launch/maritime_px4_sitl.launch">
+    <arg name="scene_level" value="$(arg scene_level)"/>
+    <arg name="world" value="$(arg world)"/>
+    <arg name="gui" value="$(arg px4_gui)"/>
+    <arg name="vehicle" value="$(arg vehicle)"/>
+    <arg name="enable_truth_vision" value="$(arg enable_truth_vision)"/>
+    <arg name="x" value="$(arg spawn_x)"/>
+    <arg name="y" value="$(arg spawn_y)"/>
+    <arg name="z" value="$(arg spawn_z)"/>
+    <arg name="Y" value="$(arg spawn_yaw)"/>
+  </include>
+
+  <include file="$(find f250_maritime_uav_sim)/launch/maritime_ego_planner.launch">
+    <arg name="scene_level" value="$(arg scene_level)"/>
+    <arg name="scene_config" value="$(arg scene_config)"/>
+    <arg name="perception_source" value="$(arg perception_source)"/>
+    <arg name="dynamic_mode" value="$(arg dynamic_mode)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="auto_offboard_arm" value="$(arg auto_offboard_arm)"/>
+    <arg name="require_planner_command_for_offboard" value="$(arg require_planner_command_for_offboard)"/>
+    <arg name="start_paused" value="$(arg start_paused)"/>
+    <arg name="start_topic" value="$(arg start_topic)"/>
+    <arg name="enable_metric_monitor" value="$(arg enable_metric_monitor)"/>
+    <arg name="metric_output_dir" value="$(arg metric_output_dir)"/>
+    <arg name="metric_run_label" value="$(arg metric_run_label)"/>
+    <arg name="landing_enabled" value="$(arg landing_enabled)"/>
+    <arg name="map_size_x" value="$(arg map_size_x)"/>
+    <arg name="map_size_y" value="$(arg map_size_y)"/>
+    <arg name="map_size_z" value="$(arg map_size_z)"/>
+  </include>
+
+  <node if="$(arg enable_rviz)" pkg="f250_maritime_uav_sim" type="mavros_odom_to_tf.py"
+        name="mavros_odom_to_tf" output="log">
+    <param name="odom_topic" value="/mavros/local_position/odom"/>
+    <param name="parent_frame" value="world"/>
+    <param name="child_frame" value="base_link"/>
+  </node>
+
+  <node if="$(arg enable_rviz)" pkg="rviz" type="rviz" name="maritime_rviz"
+        args="-d $(arg rviz_config)" output="screen">
+    <env name="DISABLE_ROS1_EOL_WARNINGS" value="1"/>
+  </node>
+</launch>

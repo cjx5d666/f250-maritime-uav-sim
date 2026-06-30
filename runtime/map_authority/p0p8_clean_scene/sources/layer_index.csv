@@ -1,0 +1,5 @@
+file,role,has_axes,has_title,has_legend,visual_mesh_csv,planner_obstacle_csv,waypoint_csv,notes
+base_world.png,base_world,True,False,False,sources/visual_mesh_footprints.csv,,,Clean visual base only; no planner obstacles or route points.
+obstacle_map.png,clean_scene_obstacle_map,True,False,True,sources/visual_mesh_footprints.csv,sources/planner_obstacles.csv,,Visual base plus current human-facing buoy obstacle footprints.
+route_map.png,route_map,True,False,True,sources/visual_mesh_footprints.csv,sources/planner_obstacles.csv,sources/route_waypoints.csv,P0-P8 route review on the current runtime scene geometry.
+route_result.png,route_result,True,False,True,sources/visual_mesh_footprints.csv,sources/planner_obstacles.csv,sources/route_waypoints.csv,P0-P8 planned-vs-flown result using current retained trajectory evidence.

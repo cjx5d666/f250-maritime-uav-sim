@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="f250_navigation_buoy_collision_mesh">
+    <static>true</static>
+    <link name="link">
+      <collision name="navigation_buoy_collision_shell">
+        <geometry>
+          <mesh>
+            <uri>model://f250_navigation_buoy_collision_mesh/meshes/navigation_buoy_collision.obj</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="navigation_buoy_visual_shell">
+        <geometry>
+          <mesh>
+            <uri>model://f250_navigation_buoy_collision_mesh/meshes/navigation_buoy_collision.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1.0 0.76 0.2 1.0</ambient>
+          <diffuse>1.0 0.76 0.2 1.0</diffuse>
+          <specular>0.12 0.12 0.12 1.0</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

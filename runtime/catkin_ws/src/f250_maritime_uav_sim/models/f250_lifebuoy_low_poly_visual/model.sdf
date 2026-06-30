@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="f250_lifebuoy_low_poly_visual">
+    <static>true</static>
+    <link name="visual_link">
+      <visual name="lifebuoy_low_poly_visual">
+        <geometry>
+          <mesh>
+            <uri>model://f250_lifebuoy_low_poly_visual/meshes/lifebuoy_low_poly_materialized.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1.0 0.2 0.06 1.0</ambient>
+          <diffuse>1.0 0.2 0.06 1.0</diffuse>
+          <specular>0.12 0.12 0.12 1.0</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

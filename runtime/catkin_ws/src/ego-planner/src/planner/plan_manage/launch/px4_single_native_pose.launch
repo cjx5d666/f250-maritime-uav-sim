@@ -1,0 +1,41 @@
+<launch>
+  <param name="/use_sim_time" value="true"/>
+  <arg name="map_size_x" value="60.0"/>
+  <arg name="map_size_y" value="60.0"/>
+  <arg name="map_size_z" value="8.0"/>
+  <arg name="odom_topic" value="/mavros/local_position/odom"/>
+  <arg name="camera_pose_topic" value="/grid_map/pose"/>
+  <arg name="depth_topic" value="/depth_camera/depth/image_raw"/>
+  <arg name="cx" value="320.0"/>
+  <arg name="cy" value="240.0"/>
+  <arg name="fx" value="337.0"/>
+  <arg name="fy" value="337.0"/>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world_map"
+        args="0 0 0 0 0 0 world map" />
+
+  <include file="$(find ego_planner)/launch/advanced_param_px4_native_pose.xml">
+    <arg name="map_size_x_" value="$(arg map_size_x)"/>
+    <arg name="map_size_y_" value="$(arg map_size_y)"/>
+    <arg name="map_size_z_" value="$(arg map_size_z)"/>
+    <arg name="odometry_topic" value="$(arg odom_topic)"/>
+    <arg name="camera_pose_topic" value="$(arg camera_pose_topic)"/>
+    <arg name="depth_topic" value="$(arg depth_topic)"/>
+    <arg name="cloud_topic" value="/nouse/cloud"/>
+    <arg name="cx" value="$(arg cx)"/>
+    <arg name="cy" value="$(arg cy)"/>
+    <arg name="fx" value="$(arg fx)"/>
+    <arg name="fy" value="$(arg fy)"/>
+    <arg name="max_vel" value="1.2"/>
+    <arg name="max_acc" value="1.5"/>
+    <arg name="planning_horizon" value="8"/>
+  </include>
+
+  <node pkg="ego_planner" name="traj_server" type="traj_server" output="screen">
+    <remap from="/position_cmd" to="/planning/pos_cmd"/>
+    <remap from="/odom_world" to="$(arg odom_topic)"/>
+    <param name="traj_server/time_forward" value="2.0" type="double"/>
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ego_planner)/launch/default.rviz" required="true" />
+</launch>

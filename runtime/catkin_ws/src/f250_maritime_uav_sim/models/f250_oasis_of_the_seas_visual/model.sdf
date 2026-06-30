@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="f250_oasis_of_the_seas_visual">
+    <static>true</static>
+    <link name="visual_link">
+      <visual name="oasis_of_the_seas_visual">
+        <geometry>
+          <mesh>
+            <uri>model://f250_oasis_of_the_seas_visual/meshes/oasis_of_the_seas_materialized.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.76 0.78 1.0</ambient>
+          <diffuse>0.72 0.76 0.78 1.0</diffuse>
+          <specular>0.15 0.15 0.15 1.0</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

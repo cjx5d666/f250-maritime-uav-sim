@@ -1,0 +1,1193 @@
+scene_level: level_m_gps_assets_quick_complex
+world_name: maritime_level_m_gps_assets_quick_complex
+frame_id: world
+water_level_m: 0.0
+cloud_resolution: 0.25
+mesh_cloud_resolution: 0.35
+cloud_publish_rate_hz: 5.0
+gui_camera:
+  pose:
+  - 165.0
+  - -6.0
+  - 470.0
+  - 0.0
+  - 1.34
+  - 0.0
+geo_origin:
+  latitude_deg: 22.3
+  longitude_deg: 114.18
+  altitude_m: 0.0
+  local_position:
+  - 0.0
+  - 0.0
+  - 0.0
+deck:
+  name: cruise_ship_hidden_support_deck
+  center:
+  - 30.5
+  - 16.0
+  - 4.54
+  size:
+  - 64.0
+  - 12.5
+  - 0.24
+  visual: false
+  include_in_cloud: false
+takeoff_deck_zone:
+  name: cruise_ship_bow_h_pad_zone
+  center:
+  - 55.0
+  - 16.0
+  - 4.685
+  size:
+  - 4.8
+  - 3.0
+  - 0.12
+  yaw: 0.0
+  visual: false
+  include_in_cloud: false
+  allow_outboard: true
+landing_box:
+  name: cruise_ship_bow_h_pad_zone
+  center:
+  - 55.0
+  - 16.0
+  - 4.685
+  size:
+  - 4.8
+  - 3.0
+  - 0.12
+  yaw: 0.0
+  visual: false
+  include_in_cloud: false
+  allow_outboard: true
+landing_deck_zone:
+  name: cruise_ship_bow_h_pad_zone
+  center:
+  - 55.0
+  - 16.0
+  - 4.685
+  size:
+  - 4.8
+  - 3.0
+  - 0.12
+  yaw: 0.0
+  visual: false
+  include_in_cloud: false
+  allow_outboard: true
+ship_hull: []
+docks: []
+visual_vessels:
+- name: oasis_of_the_seas_static_carrier
+  center:
+  - 26.5
+  - 16.0
+  - -1.75
+  rpy:
+  - 0
+  - 0
+  - 0
+  scale: 1.2
+  static: true
+  collision: false
+  mesh_collision: true
+  collision_proxies:
+  - name: hull_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 1.8
+    size:
+    - 62.0
+    - 14.4
+    - 4.2
+    include_in_cloud: true
+    cloud_resolution: 1.0
+  - name: main_deckhouse_proxy
+    shape: box
+    center:
+    - 1.0
+    - 0.0
+    - 5.2
+    size:
+    - 46.0
+    - 10.4
+    - 3.2
+    include_in_cloud: true
+    cloud_resolution: 1.0
+  - name: upper_deckhouse_proxy
+    shape: box
+    center:
+    - -2.0
+    - 0.0
+    - 7.2
+    size:
+    - 28.0
+    - 8.0
+    - 3.0
+    include_in_cloud: true
+    cloud_resolution: 1.0
+  mesh_uri: model://f250_oasis_of_the_seas_visual/meshes/oasis_of_the_seas_materialized.obj
+- name: tanker_ship_static_visual
+  center:
+  - 237.435
+  - -109.212
+  - -0.55
+  rpy:
+  - 0
+  - 0
+  - -0.22
+  scale: 1.7
+  static: true
+  collision: false
+  mesh_collision: true
+  collision_proxies:
+  - name: tanker_hull_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 1.8
+    size:
+    - 48.0
+    - 11.0
+    - 4.0
+    include_in_cloud: true
+    cloud_resolution: 1.0
+  - name: tanker_cargo_deck_proxy
+    shape: box
+    center:
+    - -2.0
+    - 0.0
+    - 4.4
+    size:
+    - 30.0
+    - 8.6
+    - 2.4
+    include_in_cloud: true
+    cloud_resolution: 1.0
+  - name: tanker_aft_house_proxy
+    shape: box
+    center:
+    - -16.0
+    - 0.0
+    - 5.5
+    size:
+    - 8.0
+    - 8.0
+    - 4.8
+    include_in_cloud: true
+    cloud_resolution: 1.0
+  mesh_uri: model://f250_tanker_ship_visual/meshes/tanker_ship_materialized.obj
+- name: kauai_left_island_visual
+  center:
+  - 135.0
+  - -105.0
+  - -1.15
+  rpy:
+  - 0
+  - 0
+  - -0.18
+  scale:
+  - 1
+  - 1
+  - 1
+  static: true
+  collision: false
+  mesh_collision: true
+  collision_proxies:
+  - name: island_base_proxy
+    shape: cylinder
+    center:
+    - -0.5
+    - -2.0
+    - 5.0
+    radius: 38.0
+    height: 14.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  - name: island_mid_proxy
+    shape: cylinder
+    center:
+    - -6.0
+    - -5.0
+    - 18.0
+    radius: 27.0
+    height: 26.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  - name: island_peak_proxy
+    shape: cylinder
+    center:
+    - -14.0
+    - -8.0
+    - 32.0
+    radius: 14.0
+    height: 24.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  mesh_uri: model://f250_clean_mountain_probe_visual/meshes/clean_single_mountain_probe_detailed.obj
+- name: kauai_center_island_visual
+  center:
+  - 270.0
+  - -12.0
+  - -1.15
+  rpy:
+  - 0
+  - 0
+  - 0.02
+  scale:
+  - 1
+  - 1
+  - 1
+  static: true
+  collision: false
+  mesh_collision: true
+  collision_proxies:
+  - name: island_base_proxy
+    shape: cylinder
+    center:
+    - -0.5
+    - -2.0
+    - 5.0
+    radius: 38.0
+    height: 14.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  - name: island_mid_proxy
+    shape: cylinder
+    center:
+    - -6.0
+    - -5.0
+    - 18.0
+    radius: 27.0
+    height: 26.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  - name: island_peak_proxy
+    shape: cylinder
+    center:
+    - -14.0
+    - -8.0
+    - 32.0
+    radius: 14.0
+    height: 24.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  mesh_uri: model://f250_clean_mountain_probe_visual/meshes/clean_single_mountain_probe_detailed.obj
+- name: kauai_right_island_visual
+  center:
+  - 135.0
+  - 105.0
+  - -1.15
+  rpy:
+  - 0
+  - 0
+  - 0.18
+  scale:
+  - 1
+  - 1
+  - 1
+  static: true
+  collision: false
+  mesh_collision: true
+  collision_proxies:
+  - name: island_base_proxy
+    shape: cylinder
+    center:
+    - -0.5
+    - -2.0
+    - 5.0
+    radius: 38.0
+    height: 14.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  - name: island_mid_proxy
+    shape: cylinder
+    center:
+    - -6.0
+    - -5.0
+    - 18.0
+    radius: 27.0
+    height: 26.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  - name: island_peak_proxy
+    shape: cylinder
+    center:
+    - -14.0
+    - -8.0
+    - 32.0
+    radius: 14.0
+    height: 24.0
+    include_in_cloud: true
+    cloud_resolution: 2.0
+  mesh_uri: model://f250_clean_mountain_probe_visual/meshes/clean_single_mountain_probe_detailed.obj
+- name: golden_gate_bridge_visual
+  center:
+  - 202.5
+  - -58.5
+  - 0.0
+  rpy:
+  - 0
+  - 0
+  - 0.6032298529246849
+  scale: 5.85
+  static: true
+  collision: false
+  mesh_collision: true
+  collision_proxies:
+  - name: bridge_deck_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 4.0
+    size:
+    - 176.0
+    - 4.2
+    - 1.8
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: bridge_rail_port_proxy
+    shape: box
+    center:
+    - 0.0
+    - 5.1
+    - 6.5
+    size:
+    - 176.0
+    - 0.8
+    - 3.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: bridge_rail_starboard_proxy
+    shape: box
+    center:
+    - 0.0
+    - -5.1
+    - 6.5
+    size:
+    - 176.0
+    - 0.8
+    - 3.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: bridge_tower_west_port_proxy
+    shape: box
+    center:
+    - -58.0
+    - 4.2
+    - 23.4
+    size:
+    - 4.0
+    - 3.5
+    - 46.8
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: bridge_tower_west_starboard_proxy
+    shape: box
+    center:
+    - -58.0
+    - -4.2
+    - 23.4
+    size:
+    - 4.0
+    - 3.5
+    - 46.8
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: bridge_tower_east_port_proxy
+    shape: box
+    center:
+    - 58.0
+    - 4.2
+    - 23.4
+    size:
+    - 4.0
+    - 3.5
+    - 46.8
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: bridge_tower_east_starboard_proxy
+    shape: box
+    center:
+    - 58.0
+    - -4.2
+    - 23.4
+    size:
+    - 4.0
+    - 3.5
+    - 46.8
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: bridge_crossbeam_west_proxy
+    shape: box
+    center:
+    - -58.0
+    - 0.0
+    - 37.5
+    size:
+    - 7.0
+    - 11.0
+    - 2.2
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: bridge_crossbeam_east_proxy
+    shape: box
+    center:
+    - 58.0
+    - 0.0
+    - 37.5
+    size:
+    - 7.0
+    - 11.0
+    - 2.2
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  mesh_uri: model://f250_golden_gate_bridge_matthew_zirkle_visual/meshes/golden_gate_bridge_matthew_zirkle_materialized.obj
+- name: helix_bridge_visual
+  center:
+  - 202.5
+  - 46.5
+  - 0.0
+  rpy:
+  - 0
+  - 0
+  - 2.427501954977635
+  scale: 8.9
+  static: true
+  collision: false
+  mesh_collision: true
+  collision_proxies:
+  - name: helix_deck_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 3.0
+    size:
+    - 160.0
+    - 7.0
+    - 2.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_tube_port_proxy
+    shape: box
+    center:
+    - 0.0
+    - 10.5
+    - 12.0
+    size:
+    - 160.0
+    - 1.2
+    - 4.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_tube_starboard_proxy
+    shape: box
+    center:
+    - 0.0
+    - -10.5
+    - 12.0
+    size:
+    - 160.0
+    - 1.2
+    - 4.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_ring_west_proxy
+    shape: box
+    center:
+    - -55.0
+    - 0.0
+    - 12.0
+    size:
+    - 1.5
+    - 22.0
+    - 24.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_ring_center_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 12.0
+    size:
+    - 1.5
+    - 22.0
+    - 24.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_ring_east_proxy
+    shape: box
+    center:
+    - 55.0
+    - 0.0
+    - 12.0
+    size:
+    - 1.5
+    - 22.0
+    - 24.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_pier_west_port_proxy
+    shape: box
+    center:
+    - -62.0
+    - 8.0
+    - 7.0
+    size:
+    - 4.0
+    - 3.0
+    - 14.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_pier_west_starboard_proxy
+    shape: box
+    center:
+    - -62.0
+    - -8.0
+    - 7.0
+    size:
+    - 4.0
+    - 3.0
+    - 14.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_pier_east_port_proxy
+    shape: box
+    center:
+    - 62.0
+    - 8.0
+    - 7.0
+    size:
+    - 4.0
+    - 3.0
+    - 14.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  - name: helix_pier_east_starboard_proxy
+    shape: box
+    center:
+    - 62.0
+    - -8.0
+    - 7.0
+    size:
+    - 4.0
+    - 3.0
+    - 14.0
+    include_in_cloud: true
+    cloud_resolution: 1.5
+  mesh_uri: model://f250_helix_bridge_visual/meshes/helix_bridge_materialized.obj
+  mesh_material:
+  - 0.86
+  - 0.92
+  - 0.96
+  - 1.0
+- name: lifebuoy_low_poly_visual
+  center:
+  - -14.0
+  - -33.5
+  - 0.08
+  rpy:
+  - 0
+  - 0
+  - 0.25
+  scale: 1.1
+  static: true
+  collision: false
+  mesh_collision: true
+  collision_proxies:
+  - name: lifebuoy_disc_proxy
+    shape: cylinder
+    center:
+    - 0.0
+    - 0.0
+    - 0.11
+    radius: 1.05
+    height: 0.28
+    include_in_cloud: true
+    cloud_resolution: 0.25
+  mesh_uri: model://f250_lifebuoy_low_poly_visual/meshes/lifebuoy_low_poly_materialized.obj
+- name: task_wind_channel_1
+  mesh_uri: model://f250_generic_wind_turbine_visual/meshes/generic_wind_turbine_materialized.obj
+  center:
+  - 145.816
+  - 34.791
+  - 0.0
+  rpy:
+  - 0.0
+  - 0.0
+  - -0.5702118602218398
+  scale: 1.85
+  static: true
+  collision: false
+  mesh_collision: true
+  use_collision_proxies: false
+  collision_proxies:
+  - name: turbine_tower_proxy
+    shape: cylinder
+    center:
+    - 0.0
+    - 0.0
+    - 17.0
+    radius: 0.7
+    height: 34.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+  - name: turbine_nacelle_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 37.0
+    size:
+    - 4.8
+    - 2.2
+    - 2.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+  - name: turbine_rotor_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 33.0
+    size:
+    - 15.0
+    - 0.7
+    - 15.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+- name: task_wind_channel_2
+  mesh_uri: model://f250_generic_wind_turbine_visual/meshes/generic_wind_turbine_materialized.obj
+  center:
+  - 161.987
+  - 24.421
+  - 0.0
+  rpy:
+  - 0.0
+  - 0.0
+  - -0.5702118602218398
+  scale: 1.85
+  static: true
+  collision: false
+  mesh_collision: true
+  use_collision_proxies: false
+  collision_proxies:
+  - name: turbine_tower_proxy
+    shape: cylinder
+    center:
+    - 0.0
+    - 0.0
+    - 17.0
+    radius: 0.7
+    height: 34.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+  - name: turbine_nacelle_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 37.0
+    size:
+    - 4.8
+    - 2.2
+    - 2.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+  - name: turbine_rotor_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 33.0
+    size:
+    - 15.0
+    - 0.7
+    - 15.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+- name: task_wind_channel_3
+  mesh_uri: model://f250_generic_wind_turbine_visual/meshes/generic_wind_turbine_materialized.obj
+  center:
+  - 178.158
+  - 14.051
+  - 0.0
+  rpy:
+  - 0.0
+  - 0.0
+  - -0.5702118602218398
+  scale: 1.85
+  static: true
+  collision: false
+  mesh_collision: true
+  use_collision_proxies: false
+  collision_proxies:
+  - name: turbine_tower_proxy
+    shape: cylinder
+    center:
+    - 0.0
+    - 0.0
+    - 17.0
+    radius: 0.7
+    height: 34.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+  - name: turbine_nacelle_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 37.0
+    size:
+    - 4.8
+    - 2.2
+    - 2.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+  - name: turbine_rotor_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - 33.0
+    size:
+    - 15.0
+    - 0.7
+    - 15.0
+    include_in_cloud: true
+    cloud_resolution: 0.75
+- name: o1_left_of_reference
+  center:
+  - 78.564
+  - 38.061
+  - 5.5
+  rpy:
+  - 0.0
+  - 0.0
+  - 0.0
+  scale:
+  - 3.1
+  - 3.1
+  - 11.0
+  static: true
+  collision: false
+  mesh_collision: true
+  mesh_cloud_resolution: 0.25
+  mesh_uri: model://f250_navigation_buoy_collision_mesh/meshes/navigation_buoy_collision.obj
+  mesh_material:
+  - 1.0
+  - 0.76
+  - 0.2
+  - 1.0
+- name: o2_right_of_reference
+  center:
+  - 86.715
+  - 22.012
+  - 5.5
+  rpy:
+  - 0.0
+  - 0.0
+  - 0.0
+  scale:
+  - 3.1
+  - 3.1
+  - 11.0
+  static: true
+  collision: false
+  mesh_collision: true
+  mesh_cloud_resolution: 0.25
+  mesh_uri: model://f250_navigation_buoy_collision_mesh/meshes/navigation_buoy_collision.obj
+  mesh_material:
+  - 1.0
+  - 0.76
+  - 0.2
+  - 1.0
+- name: o3_on_reference
+  center:
+  - 101.363
+  - 39.546
+  - 5.5
+  rpy:
+  - 0.0
+  - 0.0
+  - 0.0
+  scale:
+  - 3.1
+  - 3.1
+  - 11.0
+  static: true
+  collision: false
+  mesh_collision: true
+  mesh_cloud_resolution: 0.25
+  mesh_uri: model://f250_navigation_buoy_collision_mesh/meshes/navigation_buoy_collision.obj
+  mesh_material:
+  - 1.0
+  - 0.76
+  - 0.2
+  - 1.0
+- name: o4_on_reference
+  center:
+  - 115.183
+  - 46.565
+  - 5.5
+  rpy:
+  - 0.0
+  - 0.0
+  - 0.0
+  scale:
+  - 3.1
+  - 3.1
+  - 11.0
+  static: true
+  collision: false
+  mesh_collision: true
+  mesh_cloud_resolution: 0.25
+  mesh_uri: model://f250_navigation_buoy_collision_mesh/meshes/navigation_buoy_collision.obj
+  mesh_material:
+  - 1.0
+  - 0.76
+  - 0.2
+  - 1.0
+- name: o5_near_island_bank
+  center:
+  - 197.5
+  - 5.0
+  - 5.5
+  rpy:
+  - 0.0
+  - 0.0
+  - 0.0
+  scale:
+  - 3.0
+  - 3.0
+  - 11.0
+  static: true
+  collision: false
+  mesh_collision: true
+  mesh_cloud_resolution: 0.25
+  mesh_uri: model://f250_navigation_buoy_collision_mesh/meshes/navigation_buoy_collision.obj
+  mesh_material:
+  - 1.0
+  - 0.76
+  - 0.2
+  - 1.0
+bridges: []
+bridge_piers: []
+buoys: []
+box_obstacles: []
+visual_boxes: []
+dynamic_obstacles:
+- name: d1_wamv_slow_crossing_obstacle
+  shape: composite
+  center:
+  - 181.0
+  - -40.0
+  - 6.5
+  yaw: -0.25
+  include_in_cloud: true
+  collision_proxies:
+  - name: port_pontoon_proxy
+    shape: box
+    center:
+    - 0.0
+    - 2.05
+    - -2.35
+    size:
+    - 11.2
+    - 1.0
+    - 1.25
+    include_in_cloud: true
+    cloud_resolution: 0.25
+    color:
+    - 0.1
+    - 0.68
+    - 0.92
+    - 0.34
+  - name: starboard_pontoon_proxy
+    shape: box
+    center:
+    - 0.0
+    - -2.05
+    - -2.35
+    size:
+    - 11.2
+    - 1.0
+    - 1.25
+    include_in_cloud: true
+    cloud_resolution: 0.25
+    color:
+    - 0.1
+    - 0.68
+    - 0.92
+    - 0.34
+  - name: fore_crossbeam_proxy
+    shape: box
+    center:
+    - 3.4
+    - 0.0
+    - -1.6
+    size:
+    - 0.9
+    - 5.5
+    - 0.5
+    include_in_cloud: true
+    cloud_resolution: 0.25
+    color:
+    - 0.25
+    - 0.78
+    - 0.96
+    - 0.3
+  - name: aft_crossbeam_proxy
+    shape: box
+    center:
+    - -3.4
+    - 0.0
+    - -1.6
+    size:
+    - 0.9
+    - 5.5
+    - 0.5
+    include_in_cloud: true
+    cloud_resolution: 0.25
+    color:
+    - 0.25
+    - 0.78
+    - 0.96
+    - 0.3
+  - name: center_deck_proxy
+    shape: box
+    center:
+    - 0.0
+    - 0.0
+    - -1.25
+    size:
+    - 6.8
+    - 4.4
+    - 0.5
+    include_in_cloud: true
+    cloud_resolution: 0.25
+    color:
+    - 0.12
+    - 0.74
+    - 0.92
+    - 0.32
+  - name: deckhouse_proxy
+    shape: box
+    center:
+    - -1.0
+    - 0.0
+    - 0.0
+    size:
+    - 2.8
+    - 2.6
+    - 1.8
+    include_in_cloud: true
+    cloud_resolution: 0.25
+    color:
+    - 0.12
+    - 0.78
+    - 0.95
+    - 0.36
+  - name: sensor_arch_proxy
+    shape: box
+    center:
+    - 0.3
+    - 0.0
+    - 1.35
+    size:
+    - 0.5
+    - 3.8
+    - 2.6
+    include_in_cloud: true
+    cloud_resolution: 0.25
+    color:
+    - 0.18
+    - 0.84
+    - 1.0
+    - 0.34
+  - name: high_mast_payload_proxy
+    shape: box
+    role: high_mast_payload
+    center:
+    - 1.8
+    - 0.0
+    - 3.2
+    size:
+    - 1.8
+    - 1.8
+    - 8.6
+    include_in_cloud: true
+    cloud_resolution: 0.25
+    color:
+    - 0.92
+    - 0.22
+    - 0.12
+    - 0.55
+  mesh_uri: model://f250_wamv_visual/mesh/WAM-V-Base.dae
+  mesh_scale: 4.0
+  mesh_pose:
+  - 0.0
+  - 0.0
+  - -3.1
+  - 0.0
+  - 0.0
+  - 0.0
+  motion:
+    type: sinusoid
+    axis_vector:
+    - 1.0
+    - 0.25
+    - 0.0
+    amplitude: 9.0
+    period_sec: 46.0
+    phase_rad: 0.4
+    yaw_mode: track
+  color:
+  - 0.22
+  - 0.58
+  - 0.72
+  - 1.0
+  size:
+  - 4.8
+  - 2.4
+  - 12.0
+waypoints:
+- name: p0_h_midair_start
+  label: P0
+  position:
+  - 55.0
+  - 16.0
+  - 10.0
+  yaw: 0.46992794268653587
+  radius: 4.0
+  hold_time: 0.2
+  max_duration_sec: 40.0
+- name: p1_o3_reference_behind
+  label: P1
+  position:
+  - 96.459
+  - 37.056
+  - 10.0
+  yaw: 1.1541869962670872
+  radius: 5.5
+  hold_time: 0.2
+  max_duration_sec: 45.0
+- name: p2_o3_front_offset
+  label: P2
+  position:
+  - 101.42
+  - 48.267
+  - 10.0
+  yaw: -0.4419714061928211
+  radius: 5.5
+  hold_time: 0.2
+  max_duration_sec: 45.0
+- name: p3_o4_reference_behind_mirror
+  label: P3
+  position:
+  - 110.279
+  - 44.075
+  - 10.0
+  yaw: -0.2144314581886176
+  radius: 5.5
+  hold_time: 0.2
+  max_duration_sec: 45.0
+- name: p4_o4_front_offset_mirror
+  label: P4
+  position:
+  - 122.259
+  - 41.466
+  - 10.0
+  yaw: 0.291701595120102
+  radius: 5.5
+  hold_time: 0.2
+  max_duration_sec: 45.0
+- name: p5_white_wind_channel_w1_station
+  label: P5
+  position:
+  - 156.735
+  - 51.818
+  - 10.0
+  yaw: -0.5702146368530341
+  radius: 6.0
+  hold_time: 0.2
+  max_duration_sec: 50.0
+- name: p6_white_wind_channel_w3_station
+  label: P6
+  position:
+  - 189.077
+  - 31.078
+  - 10.0
+  yaw: -1.4758074910859034
+  radius: 6.0
+  hold_time: 0.2
+  max_duration_sec: 50.0
+- name: p7_red_bridge_center_normal
+  label: P7
+  position:
+  - 196.827
+  - -50.265
+  - 10.0
+  yaw: -0.9675692314376662
+  radius: 5.5
+  hold_time: 0.2
+  max_duration_sec: 45.0
+- name: p8_cargo_one_meter_finish
+  label: P8
+  position:
+  - 238.24
+  - -110.381
+  - 10.0
+  yaw: 2.174023422152127
+  radius: 1.0
+  hold_time: 0.2
+  max_duration_sec: 45.0
+acceptance:
+  final_zone_source: waypoint
+  position_tolerance_m: 1.0
+  yaw_tolerance_rad: 0.8
+  min_cloud_points: 600
+  max_cloud_points: 500000
+  odom_timeout_sec: 8.0
+  pos_cmd_timeout_sec: 8.0
+  goal_publish_period_sec: 1.0
+  min_water_clearance_m: 3.0
+  min_obstacle_distance_m: 1.5
+  min_dynamic_obstacle_distance_m: 3.0
+  final_zone_hold_sec: 0.2
+  require_all_waypoints: true
+tc_case:
+  id: quick-complex-current
+  label: 'classic P0-P8 clean scene: three wind stations'
+  route_note: 'Cleaned after design-preview rejection: keep the valuable classic P0-P8
+    line, five reference buoys, one dynamic obstacle, and the original wind-channel
+    band converted from four stations to three equally spaced stations.'
+route_profile:
+  route_id: classic_p0_p8
+  name: Classic P0-P8
+  description: Baseline route from P0 to P8 for the current maritime scene.
+  profile_path: ${F250_PROJECT_ROOT}/catkin_ws/src/f250_maritime_uav_sim/config/routes/classic_p0_p8.yaml
+  profile_source: builtin
+  base_scene: ${F250_PROJECT_ROOT}/catkin_ws/src/f250_maritime_uav_sim/config/scenes/level_m_gps_assets_quick_complex.yaml
+  scene_level: level_m_gps_assets_quick_complex
+  waypoint_count: 9
+  first_label: P0
+  final_label: P8
+  total_route_length_m: 309.9491982437759
+  locked_baseline_compatibility: true
+  display_name: Classic P0-P8
+  ui_order: 10
+  compatibility_aliases:
+  - classic
+  - classic_p0_p8
+  - p0_p8
+  - default
+  - mixed_comprehensive_route
+  - mixed
+  validation_basis: current validated P0-P8 route geometry

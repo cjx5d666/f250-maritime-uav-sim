@@ -1,0 +1,17 @@
+{
+  "files": {
+    "decagon_points": "inputs/decagon_points.csv",
+    "geometry_audit": "metrics/geometry_audit.json",
+    "phases": "measurements/phases.csv",
+    "samples": "measurements/samples.csv",
+    "status": "status.env",
+    "summary": "metrics/summary.json"
+  },
+  "outcome": "PASS",
+  "schema": "f250_current_evidence_manifest_v1",
+  "sensor": "lidar",
+  "source_task": "flight_control_run",
+  "state": "complete",
+  "task": "fc_3_10",
+  "updated_at": "2026-06-28T16:34:32Z"
+}

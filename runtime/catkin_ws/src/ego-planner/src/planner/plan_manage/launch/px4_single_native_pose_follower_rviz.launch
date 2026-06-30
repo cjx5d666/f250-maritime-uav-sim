@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find ego_planner)/launch/px4_single_native_pose_rviz.launch">
+    <arg name="rviz_config" value="$(find ego_planner)/launch/default_native_pose_follower.rviz"/>
+    <arg name="max_vel" value="1.4"/>
+    <arg name="max_acc" value="1.2"/>
+    <arg name="planning_horizon" value="11.0"/>
+  </include>
+</launch>

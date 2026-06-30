@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="scene_level" default="$(optenv SCENE_LEVEL level_m_gps_assets_quick_complex)"/>
+  <arg name="scene_config" default="$(find f250_maritime_uav_sim)/config/scenes/$(arg scene_level).yaml"/>
+  <arg name="perception_source" default="$(optenv PERCEPTION_SOURCE lidar)"/>
+  <arg name="dynamic_mode" default="$(optenv DYNAMIC_MODE auto)"/>
+  <arg name="use_sim_time" default="false"/>
+  <arg name="enable_ego" default="true"/>
+  <arg name="odom_topic" default="/mavros/local_position/odom"/>
+  <arg name="cloud_topic" default="/maritime/obstacles_cloud"/>
+  <arg name="goal_topic" default="/move_base_simple/goal"/>
+  <arg name="setpoint_topic" default="/mavros/setpoint_position/local"/>
+  <arg name="velocity_setpoint_topic" default="/mavros/setpoint_raw/local"/>
+  <arg name="fc_control_mode_topic" default="/maritime/fc_control_mode"/>
+  <arg name="auto_offboard_arm" default="false"/>
+  <arg name="arm_after_offboard" default="true"/>
+  <arg name="require_planner_command_for_offboard" default="true"/>
+  <arg name="start_paused" default="$(optenv MARITIME_START_PAUSED false)"/>
+  <arg name="start_topic" default="$(optenv MARITIME_START_TOPIC /maritime/demo/start_waypoints)"/>
+  <arg name="enable_metric_monitor" default="$(optenv MARITIME_ENABLE_METRIC_MONITOR false)"/>
+  <arg name="metric_output_dir" default="$(optenv MARITIME_METRIC_OUTPUT_DIR)"/>
+  <arg name="metric_run_label" default="$(optenv MARITIME_METRIC_RUN_LABEL)"/>
+  <arg name="landing_enabled" default="$(optenv LANDING_MODE false)"/>
+  <arg name="landing_status_topic" default="/maritime/landing_status"/>
+  <arg name="map_size_x" default="$(optenv MAP_SIZE_X 36.0)"/>
+  <arg name="map_size_y" default="$(optenv MAP_SIZE_Y 24.0)"/>
+  <arg name="map_size_z" default="$(optenv MAP_SIZE_Z 12.0)"/>
+  <arg name="ego_max_vel" default="$(optenv EGO_MAX_VEL 1.2)"/>
+  <arg name="ego_max_acc" default="$(optenv EGO_MAX_ACC 1.5)"/>
+  <arg name="ego_max_jerk" default="$(optenv EGO_MAX_JERK 4.0)"/>
+  <arg name="ego_control_points_distance" default="$(optenv EGO_CONTROL_POINTS_DISTANCE 0.3)"/>
+  <arg name="ego_feasibility_tolerance" default="$(optenv EGO_FEASIBILITY_TOLERANCE 0.0)"/>
+  <arg name="ego_planning_horizon" default="$(optenv EGO_PLANNING_HORIZON 8.0)"/>
+  <arg name="ego_local_update_range_x" default="$(optenv EGO_LOCAL_UPDATE_RANGE_X 6.0)"/>
+  <arg name="ego_local_update_range_y" default="$(optenv EGO_LOCAL_UPDATE_RANGE_Y 6.0)"/>
+  <arg name="ego_local_update_range_z" default="$(optenv EGO_LOCAL_UPDATE_RANGE_Z 8.0)"/>
+  <arg name="ego_obstacles_inflation" default="$(optenv EGO_OBSTACLES_INFLATION 0.1)"/>
+  <arg name="ego_collision_dist0" default="$(optenv EGO_COLLISION_DIST0 0.4)"/>
+  <arg name="ego_grid_map_resolution" default="$(optenv EGO_GRID_MAP_RESOLUTION 0.16)"/>
+  <arg name="ego_lambda_smooth" default="$(optenv EGO_LAMBDA_SMOOTH 1.0)"/>
+  <arg name="ego_lambda_collision" default="$(optenv EGO_LAMBDA_COLLISION 10.0)"/>
+  <arg name="ego_lambda_feasibility" default="$(optenv EGO_LAMBDA_FEASIBILITY 0.1)"/>
+  <arg name="ego_lambda_fitness" default="$(optenv EGO_LAMBDA_FITNESS 1.5)"/>
+  <arg name="ego_virtual_ceil_height" default="$(optenv EGO_VIRTUAL_CEIL_HEIGHT 6.0)"/>
+  <arg name="ego_visualization_truncate_height" default="$(optenv EGO_VISUALIZATION_TRUNCATE_HEIGHT 6.0)"/>
+
+  <param name="/use_sim_time" value="$(arg use_sim_time)"/>
+
+  <include file="$(find f250_maritime_uav_sim)/launch/maritime_obstacles.launch">
+    <arg name="scene_level" value="$(arg scene_level)"/>
+    <arg name="scene_config" value="$(arg scene_config)"/>
+    <arg name="perception_source" value="$(arg perception_source)"/>
+    <arg name="dynamic_mode" value="$(arg dynamic_mode)"/>
+    <arg name="cloud_topic" value="$(arg cloud_topic)"/>
+    <arg name="goal_topic" value="$(arg goal_topic)"/>
+    <arg name="odom_topic" value="$(arg odom_topic)"/>
+    <arg name="start_paused" value="$(arg start_paused)"/>
+    <arg name="start_topic" value="$(arg start_topic)"/>
+    <arg name="enable_metric_monitor" value="$(arg enable_metric_monitor)"/>
+    <arg name="metric_output_dir" value="$(arg metric_output_dir)"/>
+    <arg name="metric_run_label" value="$(arg metric_run_label)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+  </include>
+
+  <node pkg="f250_maritime_uav_sim" type="position_cmd_to_mavros_setpoint.py"
+        name="position_cmd_to_mavros_setpoint" output="log">
+    <param name="input_topic" value="/planning/pos_cmd"/>
+    <param name="output_topic" value="$(arg setpoint_topic)"/>
+    <param name="velocity_output_topic" value="$(arg velocity_setpoint_topic)"/>
+    <param name="control_mode_topic" value="$(arg fc_control_mode_topic)"/>
+    <param name="odom_topic" value="$(arg odom_topic)"/>
+    <param name="frame_id" value="map"/>
+    <param name="scene_config" value="$(arg scene_config)"/>
+    <param name="hover_x" value="$(optenv HOVER_X 0.0)"/>
+    <param name="hover_y" value="$(optenv HOVER_Y 0.0)"/>
+    <param name="hover_z" value="$(optenv HOVER_Z 3.0)"/>
+    <param name="hover_yaw" value="$(optenv HOVER_YAW 1.57079632679)"/>
+    <param name="max_yaw_rate_rad_s" value="$(optenv SETPOINT_MAX_YAW_RATE_RAD_S 0.0)" type="double"/>
+    <param name="max_setpoint_speed_mps" value="$(optenv SETPOINT_MAX_SPEED_MPS 0.0)" type="double"/>
+    <param name="max_setpoint_z_rate_mps" value="$(optenv SETPOINT_MAX_Z_RATE_MPS 0.0)" type="double"/>
+    <param name="max_setpoint_lead_m" value="$(optenv SETPOINT_MAX_LEAD_M 0.0)" type="double"/>
+    <param name="ignore_command_yaw" value="$(optenv SETPOINT_IGNORE_COMMAND_YAW false)" type="bool"/>
+    <param name="auto_offboard_arm" value="$(arg auto_offboard_arm)" type="bool"/>
+    <param name="arm_after_offboard" value="$(arg arm_after_offboard)" type="bool"/>
+    <param name="require_planner_command_for_offboard" value="$(arg require_planner_command_for_offboard)" type="bool"/>
+    <param name="landing_enabled" value="$(arg landing_enabled)" type="bool"/>
+    <param name="landing_status_topic" value="$(arg landing_status_topic)"/>
+  </node>
+
+  <group if="$(arg enable_ego)">
+    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world_map"
+          args="0 0 0 0 0 0 world map" output="log"/>
+
+    <include file="$(find f250_maritime_uav_sim)/launch/f250_ego_advanced_param_px4_native_pose.xml">
+      <arg name="map_size_x_" value="$(arg map_size_x)"/>
+      <arg name="map_size_y_" value="$(arg map_size_y)"/>
+      <arg name="map_size_z_" value="$(arg map_size_z)"/>
+      <arg name="odometry_topic" value="$(arg odom_topic)"/>
+      <arg name="camera_pose_topic" value="/nouse/pose"/>
+      <arg name="depth_topic" value="/nouse/depth"/>
+      <arg name="cloud_topic" value="$(arg cloud_topic)"/>
+      <arg name="cx" value="320.0"/>
+      <arg name="cy" value="240.0"/>
+      <arg name="fx" value="337.0"/>
+      <arg name="fy" value="337.0"/>
+      <arg name="max_vel" value="$(arg ego_max_vel)"/>
+      <arg name="max_acc" value="$(arg ego_max_acc)"/>
+      <arg name="max_jerk" value="$(arg ego_max_jerk)"/>
+      <arg name="control_points_distance" value="$(arg ego_control_points_distance)"/>
+      <arg name="feasibility_tolerance" value="$(arg ego_feasibility_tolerance)"/>
+      <arg name="grid_map_resolution" value="$(arg ego_grid_map_resolution)"/>
+      <arg name="planning_horizon" value="$(arg ego_planning_horizon)"/>
+      <arg name="local_update_range_x" value="$(arg ego_local_update_range_x)"/>
+      <arg name="local_update_range_y" value="$(arg ego_local_update_range_y)"/>
+      <arg name="local_update_range_z" value="$(arg ego_local_update_range_z)"/>
+      <arg name="obstacles_inflation" value="$(arg ego_obstacles_inflation)"/>
+      <arg name="collision_dist0" value="$(arg ego_collision_dist0)"/>
+      <arg name="lambda_smooth" value="$(arg ego_lambda_smooth)"/>
+      <arg name="lambda_collision" value="$(arg ego_lambda_collision)"/>
+      <arg name="lambda_feasibility" value="$(arg ego_lambda_feasibility)"/>
+      <arg name="lambda_fitness" value="$(arg ego_lambda_fitness)"/>
+      <arg name="virtual_ceil_height" value="$(arg ego_virtual_ceil_height)"/>
+      <arg name="visualization_truncate_height" value="$(arg ego_visualization_truncate_height)"/>
+      <arg name="flight_type" value="1"/>
+    </include>
+
+    <node pkg="ego_planner" name="traj_server" type="traj_server" output="log">
+      <remap from="/position_cmd" to="/planning/pos_cmd"/>
+      <remap from="/odom_world" to="$(arg odom_topic)"/>
+      <param name="traj_server/time_forward" value="2.0" type="double"/>
+    </node>
+
+    <node pkg="waypoint_generator" name="waypoint_generator" type="waypoint_generator" output="log">
+      <remap from="~odom" to="$(arg odom_topic)"/>
+      <remap from="~goal" to="$(arg goal_topic)"/>
+      <remap from="~traj_start_trigger" to="/traj_start_trigger"/>
+      <param name="waypoint_type" value="manual-lonely-waypoint"/>
+    </node>
+  </group>
+
+  <!-- Fallback: run with enable_ego:=false to keep obstacle, goal and setpoint-hover follower only. -->
+</launch>

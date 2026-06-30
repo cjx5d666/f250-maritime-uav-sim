@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="f250_clean_mountain_probe_visual">
+    <static>true</static>
+    <link name="visual_link">
+      <visual name="clean_single_mountain_probe_visual">
+        <geometry>
+          <mesh>
+            <uri>model://f250_clean_mountain_probe_visual/meshes/clean_single_mountain_probe_detailed.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
