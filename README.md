@@ -44,6 +44,16 @@ delivery_package/
 ROS logs, caches, and temporary run folders
 ```
 
+## System Preview
+
+| Maritime scene in Gazebo | RViz route and perception view |
+|---|---|
+| ![Maritime scene in Gazebo](runtime/map_authority/p0p8_clean_scene/readme_assets/gazebo_maritime_scene.png) | ![RViz route and perception view](runtime/map_authority/p0p8_clean_scene/readme_assets/rviz_route_perception.png) |
+
+| Control panel ready state | Planned route vs flown trajectory |
+|---|---|
+| ![Control panel ready state](runtime/map_authority/p0p8_clean_scene/readme_assets/control_panel_ready.png) | ![Planned route vs flown trajectory](runtime/map_authority/p0p8_clean_scene/readme_assets/route_result_plot.png) |
+
 ## 1. Install External Dependencies
 
 Start with Ubuntu 20.04.x. Install ROS Noetic, Gazebo Classic, MAVROS, and common ROS packages.
@@ -293,6 +303,16 @@ cd runtime
 - `px4_f250_patch/`：F250 机型和 Gazebo 模型的 PX4 补丁文件。
 
 PX4 本体需要单独安装。你需要先安装 PX4 v1.16.0，然后用本仓库的脚本应用 F250 补丁。
+
+### 系统预览
+
+| Gazebo 海事场景 | RViz 航线与感知视图 |
+|---|---|
+| ![Gazebo 海事场景](runtime/map_authority/p0p8_clean_scene/readme_assets/gazebo_maritime_scene.png) | ![RViz 航线与感知视图](runtime/map_authority/p0p8_clean_scene/readme_assets/rviz_route_perception.png) |
+
+| 控制面板就绪状态 | 计划航线与实际轨迹结果 |
+|---|---|
+| ![控制面板就绪状态](runtime/map_authority/p0p8_clean_scene/readme_assets/control_panel_ready.png) | ![计划航线与实际轨迹结果](runtime/map_authority/p0p8_clean_scene/readme_assets/route_result_plot.png) |
 
 ### 1. 准备系统环境
 
